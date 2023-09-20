@@ -1,3 +1,65 @@
+* {
+  border: 2px solid green;
+}
+
+html {
+  /* height: 100vh; */
+  font-family: 'Noto Serif', serif;
+}
+
+/* fonts
+font-family: 'Cedarville Cursive', cursive;
+font-family: 'Manrope', sans-serif;
+font-family: 'Noto Serif', serif;
+font-family: 'Poppins', sans-serif; 
+*/
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  height: 6vh;
+  font-family: 'Manrope', sans-serif;
+}
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+}
+
+.booking {
+  display: flex;
+  justify-content: center;
+  height: 20vh;
+  width: 40vw; 
+}
+
+.rooms-container {
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+}
+
+.staff-container {
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+}
+
+.hidden {
+  display: none;
+}
+
+.logo {
+  font-style: italic;
+  font-weight: 700;
 }
