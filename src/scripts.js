@@ -1,5 +1,6 @@
 import "./css/styles.css";
 import "./domUpdates.js";
+import "./functions.js";
 
 import {
   fetchCustomers,
@@ -10,7 +11,7 @@ import {
   getSingleCustomer
 } from "./apiCalls.js";
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   console.log(fetchRooms)
-// })
+document.addEventListener('DOMContentLoaded', function() {
+  console.log(fetchRooms)
+})
 

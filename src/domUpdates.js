@@ -1,4 +1,5 @@
 const roomsContainer = document.querySelector('.rooms-container');
+const customerContainer = document.querySelector('.customer-container')
 
 // I should see a dashboard page that shows me:
 // Any room bookings I have made (past or upcoming)
@@ -14,4 +15,12 @@ export const displayRooms = (rooms) => {
     </div>`
   })
   roomsContainer.innerHTML = roomsHTML;
+}
+
+export const displayCustomerInfo = (customer, customerBookings) => {
+  let customerHTML = ``;
+  customerHTML += 
+  `<div class="customer-info" id="${customer.id}">
+  ${customer.name}
+  </div>`
 }
