@@ -19,8 +19,13 @@ export const displayRooms = (rooms) => {
 
 export const displayCustomerInfo = (customer, customerBookings) => {
   let customerHTML = ``;
-  customerHTML += 
-  `<div class="customer-info" id="${customer.id}">
-  ${customer.name}
-  </div>`
+  customerHTML = `<div class="customer-info" id="${customer.id}">`
+  customerBookings.forEach((booking) => {
+    customerHTML += 
+    `<div class="booking-info" id="${booking.id}">
+    ${booking.date}
+    ${booking.roomNumber}
+    </div>`
+  })
+  customerContainer.innerHTML = customerHTML;
 }
