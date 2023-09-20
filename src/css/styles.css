@@ -27,13 +27,20 @@ body {
 
 nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 main {
   display: flex;
   justify-content: center;
   height: 70vh;
+}
+
+.customer-container {
+  display:flex;
+  justify-content: center;
+  height: 20vh;
+  width: 30vw;
 }
 
 .booking {
