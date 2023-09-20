@@ -1,11 +1,34 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
+import "./css/styles.css";
+import "./domUpdates.js";
+import "./functions.js";
 
-// An example of how you tell webpack to use a CSS (SCSS) file
-import './css/styles.css';
+import {
+  fetchCustomers,
+  fetchRooms,
+  fetchBookings,
+  addBooking,
+  deleteBooking,
+  getSingleCustomer
+} from "./apiCalls.js";
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import { displayRooms, displayCustomerInfo } from "./domUpdates.js";
 
+// document.addEventListener('DOMContentLoaded', function() {
+//   console.log(fetchRooms)
+// })
 
-console.log('This is the JavaScript entry file - your code begins here.');
+// USER
+let currentCustomer = {};
+
+// DATA
+let customersData = null;
+let roomsData = null;
+let bookingsData = null;
+
+Promise.all([fetchCustomers, fetchRooms, fetchBookings])
+.then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
+  customersData = customersDataValue;
+  roomsData = roomsDataValue;
+  bookingsData = bookingsDataValue;
+})
+
