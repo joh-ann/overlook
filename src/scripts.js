@@ -1,6 +1,4 @@
 import "./css/styles.css";
-import "./domUpdates.js";
-import "./functions.js";
 
 import {
   fetchCustomers,
@@ -12,6 +10,7 @@ import {
 } from "./apiCalls.js";
 
 import { displayRooms, displayCustomerInfo } from "./domUpdates.js";
+import { checkUsername } from "./functions.js";
 
 // USER
 let currentCustomer = {};
@@ -32,14 +31,15 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 const loginForm = document.querySelector("#login-form");
 // EVENT LISTENERS
 loginForm.addEventListener('submit', function(event) {
+  // prevent the form from submitting
+  event.preventDefault();
   const usernameInput = document.querySelector("#username-input");
   const passwordInput = document.querySelector("#password-input");
 
-  if (usernameInput.value.startsWith('customer') && passwordInput.value === 'overlook2021' ) {
-    console.log('it worked')
+  if (checkUsername(usernameInput.value) && passwordInput.value === 'overlook2021') {
+    alert('Success!')
   } else {
-    // prevent the form from submitting
-    event.preventDefault();
+    alert('Invalid login information')
   }
 })
 
