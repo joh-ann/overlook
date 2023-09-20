@@ -8,3 +8,7 @@ export const checkUsername = (username) => {
   return isValidUsername;
 }
 
+export const getCustomerID = (username) => {
+  const numberOnly = username.replace('customer', '');
+  return parseInt(numberOnly);
+}

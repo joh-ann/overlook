@@ -1,5 +1,6 @@
 const roomsContainer = document.querySelector('.rooms-container');
-const customerContainer = document.querySelector('.customer-container')
+const customerContainer = document.querySelector('.customer-container');
+const loginErrorMsg = document.querySelector('.login-error-msg');
 
 // I should see a dashboard page that shows me:
 // Any room bookings I have made (past or upcoming)
@@ -28,4 +29,12 @@ export const displayCustomerInfo = (customer, customerBookings) => {
     </div>`
   })
   customerContainer.innerHTML = customerHTML;
+}
+
+export const displayLoginErrorMsg = () => {
+  loginErrorMsg.classList.remove('hidden');
+
+  setTimeout(() => {
+    loginErrorMsg.classList.add('hidden');
+  }, 2000);
 }

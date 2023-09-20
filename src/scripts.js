@@ -9,8 +9,8 @@ import {
   getSingleCustomer
 } from "./apiCalls.js";
 
-import { displayRooms, displayCustomerInfo } from "./domUpdates.js";
-import { checkUsername } from "./functions.js";
+import { displayRooms, displayCustomerInfo, displayLoginErrorMsg } from "./domUpdates.js";
+import { checkUsername, getCustomerID } from "./functions.js";
 
 // USER
 let currentCustomer = {};
@@ -37,9 +37,9 @@ loginForm.addEventListener('submit', function(event) {
   const passwordInput = document.querySelector("#password-input");
 
   if (checkUsername(usernameInput.value) && passwordInput.value === 'overlook2021') {
-    alert('Success!')
+    console.log(getCustomerID(usernameInput.value));
   } else {
-    alert('Invalid login information')
+    displayLoginErrorMsg();
   }
 })
 

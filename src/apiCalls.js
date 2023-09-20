@@ -48,7 +48,7 @@ export const addBooking = (user, date, room) => {
   })
   .then(response => {
     if (!response.ok) {
-      throw newError(`Response failed with status code: ${response.status}`);
+      throw new Error(`Response failed with status code: ${response.status}`);
     }
     return response.json()
   })

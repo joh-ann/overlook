@@ -39,7 +39,7 @@ main {
 .customer-container {
   display: flex;
   justify-content: center;
-  height: 20vh;
+  height: 25vh;
   width: 30vw;
 }
 
@@ -58,9 +58,14 @@ main {
   width: 90px;
 }
 
+.login-error-msg {
+  color: red;
+  width: 200px;
+}
+
 #login-form {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   width: 300px;
 }
@@ -92,3 +97,4 @@ main {
   font-style: italic;
   font-weight: 700;
 }
+
