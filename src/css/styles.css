@@ -58,7 +58,7 @@ main {
   width: 90px;
 }
 
-.login-container {
+#login-form {
   display: flex;
   justify-content: center;
   flex-direction: column;

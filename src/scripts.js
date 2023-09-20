@@ -13,10 +13,6 @@ import {
 
 import { displayRooms, displayCustomerInfo } from "./domUpdates.js";
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   console.log(fetchRooms)
-// })
-
 // USER
 let currentCustomer = {};
 
@@ -30,5 +26,20 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
   customersData = customersDataValue;
   roomsData = roomsDataValue;
   bookingsData = bookingsDataValue;
+})
+
+// QUERY SELECTORS
+const loginForm = document.querySelector("#login-form");
+// EVENT LISTENERS
+loginForm.addEventListener('submit', function(event) {
+  const usernameInput = document.querySelector("#username-input");
+  const passwordInput = document.querySelector("#password-input");
+
+  if (usernameInput.value.startsWith('customer') && passwordInput.value === 'overlook2021' ) {
+    console.log('it worked')
+  } else {
+    // prevent the form from submitting
+    event.preventDefault();
+  }
 })
 
