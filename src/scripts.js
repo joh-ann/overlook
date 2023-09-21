@@ -1,6 +1,4 @@
 import "./css/styles.css";
-import "./domUpdates.js";
-import "./functions.js";
 
 import {
   fetchCustomers,
@@ -8,14 +6,21 @@ import {
   fetchBookings,
   addBooking,
   deleteBooking,
-  getSingleCustomer
+  getSingleCustomer,
+  fetchCustomerBookings
 } from "./apiCalls.js";
 
-import { displayRooms, displayCustomerInfo } from "./domUpdates.js";
+import { 
+  displayRooms,
+  displayCustomerInfo, 
+  displayLoginErrorMsg 
+} from "./domUpdates.js";
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   console.log(fetchRooms)
-// })
+import { 
+  checkUsername, 
+  getCustomerID, 
+  getCustomerBookings 
+} from "./functions.js";
 
 // USER
 let currentCustomer = {};
@@ -32,3 +37,25 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
   bookingsData = bookingsDataValue;
 })
 
+// QUERY SELECTORS
+const loginForm = document.querySelector("#login-form");
+// EVENT LISTENERS
+loginForm.addEventListener('submit', function(event) {
+  // prevent the form from submitting
+  event.preventDefault();
+  const usernameInput = document.querySelector("#username-input");
+  const passwordInput = document.querySelector("#password-input");
+  
+  if (checkUsername(usernameInput.value) && passwordInput.value === 'overlook2021') {
+    const customerID = getCustomerID(usernameInput.value);
+    fetchCustomerBookings(customerID).then((bookings) => {
+      const customerBookings = bookings;
+      displayCustomerInfo(customerID, customerBookings, roomsData);
+    })
+    .catch((error) => {
+      console.error("Error fetching customer bookings:", error);
+    });
+  } else {
+    displayLoginErrorMsg();
+  }
+})

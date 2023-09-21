@@ -1,3 +1,5 @@
+import { getCustomerBookings } from "./functions";
+
 export const fetchCustomers = fetch("http://localhost:3001/api/v1/customers")
   .then((response) => {
     if (!response.ok) {
@@ -48,7 +50,7 @@ export const addBooking = (user, date, room) => {
   })
   .then(response => {
     if (!response.ok) {
-      throw newError(`Response failed with status code: ${response.status}`);
+      throw new Error(`Response failed with status code: ${response.status}`);
     }
     return response.json()
   })
@@ -87,8 +89,30 @@ export const getSingleCustomer = (customerID) => {
       }
       return response.json();
     })
+    .then((data) => {
+      return data.name
+    })
     .catch((error) => {
       console.error("Error fetching customer:", error);
       throw error;
     });
   }
+
+export const fetchCustomerBookings = (customerID) => {
+  return fetch(`http://localhost:3001/api/v1/bookings`)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`Fetch failed with status code: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    let bookings = data.bookings;
+    let customerBookings = getCustomerBookings(customerID, bookings);
+    return customerBookings;
+  })
+  .catch((error) => {
+    console.error("Error fetching customer bookings:", error);
+    throw error;
+  });
+}

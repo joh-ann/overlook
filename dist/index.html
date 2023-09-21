@@ -21,9 +21,16 @@
 </header>
 <body>
   <nav>
-    <section class="customer-container">
-      customer
-    </section>
+    <div class="customer-container">
+      <form id="login-form">
+        <label for="username-input" class="label">Username:</label>
+        <input id="username-input" type="text" name="username" required />
+        <label for="password-input" class="label">Password:</label>
+        <input id="password-input" type="password" required />
+        <button type="submit" class="login-btn">Login</button>
+        <div class="login-error-msg hidden">Invalid login information</div>
+      </form>
+    </div>
     <section class="booking">
       booking
     </section>
