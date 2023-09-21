@@ -109,7 +109,6 @@ export const fetchCustomerBookings = (customerID) => {
   .then((data) => {
     let bookings = data.bookings;
     let customerBookings = getCustomerBookings(customerID, bookings);
-    console.log(customerBookings)
     return customerBookings;
   })
   .catch((error) => {
