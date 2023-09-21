@@ -24,7 +24,6 @@ export const displayRooms = (rooms) => {
 
 export const displayCustomerInfo = (customerID, customerBookings, roomsData) => {
   let customerHTML = ``;
-  customerHTML = `<div class="customer-info" id="${customerID}">`
 
     const pastBookings = customerBookings.pastBookings || [];
     const upcomingBookings = customerBookings.upcomingBookings || [];
@@ -35,8 +34,8 @@ export const displayCustomerInfo = (customerID, customerBookings, roomsData) => 
       const customerName = customer;
 
     customerHTML += `
-    <div class="booking-info">
-    <p> Welcome, ${customerName}</p>
+    <div class="customer-info" id="${customerID}">
+    <p>Welcome, ${customerName}</p>
     <p>Past Bookings: ${pastBookings.length}</p>
     <p>Upcoming Bookings: ${upcomingBookings.length}</p>
     <p>Total Spent: $${totalSpent}</p>
@@ -53,4 +52,32 @@ export const displayLoginErrorMsg = () => {
   setTimeout(() => {
     loginErrorMsg.classList.add('hidden');
   }, 2000);
+}
+
+export const displayCustomerRooms = (customerBookings, roomsData) => {
+  let roomsHTML = ``
+  roomsHTML = `<div class="rooms-info">`
+  const upcomingBookings = customerBookings.upcomingBookings || [];
+  const pastBookings = customerBookings.pastBookings || [];
+
+  roomsHTML += `
+  <h2>Upcoming Bookings:</h2>
+  <div class="upcoming-bookings">`
+  upcomingBookings.forEach((upcomingBooking) => {
+    roomsHTML += `
+    <div class="room-card">${upcomingBooking.roomNumber}</div>
+    `
+  })
+  roomsHTML += `</div>`
+  roomsHTML += `
+  <h2>Past Bookings:</h2>
+  <div class="past-bookings">`
+  pastBookings.forEach((pastBooking) => {
+    roomsHTML += `
+    <div class="room-card">${pastBooking.roomNumber}</div>
+    `
+  })
+  roomsHTML += `</div>`
+  roomsHTML += `</div>`
+  roomsContainer.innerHTML = roomsHTML;
 }

@@ -36,5 +36,5 @@ export const getTotalSpent = (allBookings, rooms) => {
     return total + (room ? room.costPerNight : 0);
   }, 0);
 
-    return totalCost;
+  return totalCost;
 }
