@@ -89,6 +89,10 @@ export const getSingleCustomer = (customerID) => {
       }
       return response.json();
     })
+    .then((data) => {
+      console.log(data.name)
+      return data.name
+    })
     .catch((error) => {
       console.error("Error fetching customer:", error);
       throw error;

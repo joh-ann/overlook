@@ -1,3 +1,5 @@
+import { getSingleCustomer } from "./apiCalls";
+
 const roomsContainer = document.querySelector('.rooms-container');
 const customerContainer = document.querySelector('.customer-container');
 const loginErrorMsg = document.querySelector('.login-error-msg');
@@ -14,7 +16,7 @@ export const displayRooms = (rooms) => {
     ${room.roomType}
     ${room.costPerNight}
     </div>`
-  })
+  });
   roomsContainer.innerHTML = roomsHTML;
 }
 
@@ -22,16 +24,23 @@ export const displayCustomerInfo = (customerID, customerBookings) => {
   let customerHTML = ``;
   customerHTML = `<div class="customer-info" id="${customerID}">`
 
-  const pastBookings = customerBookings.pastBookings || [];
-  const upcomingBookings = customerBookings.upcomingBookings || [];
+    const pastBookings = customerBookings.pastBookings || [];
+    const upcomingBookings = customerBookings.upcomingBookings || [];
 
-  customerHTML += `
-  <div class="booking-info">
-  <p>Past Bookings: ${pastBookings.length}</p>
-  <p>Upcoming Bookings: ${upcomingBookings.length}</p>
-  </div>
-  `
-  customerContainer.innerHTML = customerHTML;
+    getSingleCustomer(customerID)
+    .then((customer) => {
+      const customerName = customer;
+
+    customerHTML += `
+    <div class="booking-info">
+    <p> Welcome, ${customerName}</p>
+    <p>Past Bookings: ${pastBookings.length}</p>
+    <p>Upcoming Bookings: ${upcomingBookings.length}</p>
+    </div>
+    `;
+
+    customerContainer.innerHTML = customerHTML;
+  });
 }
 
 export const displayLoginErrorMsg = () => {

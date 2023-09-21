@@ -49,11 +49,9 @@ loginForm.addEventListener('submit', function(event) {
 
   if (checkUsername(usernameInput.value) && passwordInput.value === 'overlook2021') {
     const customerID = getCustomerID(usernameInput.value);
-    console.log(customerID)
     fetchCustomerBookings(customerID).then((bookings) => {
-      const customerBookings = bookings
-      console.log(customerBookings)
-      displayCustomerInfo(customerID, customerBookings)
+      const customerBookings = bookings;
+      displayCustomerInfo(customerID, customerBookings);
     })
   } else {
     displayLoginErrorMsg();
