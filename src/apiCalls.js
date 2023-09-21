@@ -90,7 +90,6 @@ export const getSingleCustomer = (customerID) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data.name)
       return data.name
     })
     .catch((error) => {
@@ -110,6 +109,7 @@ export const fetchCustomerBookings = (customerID) => {
   .then((data) => {
     let bookings = data.bookings;
     let customerBookings = getCustomerBookings(customerID, bookings);
+    console.log(customerBookings)
     return customerBookings;
   })
   .catch((error) => {

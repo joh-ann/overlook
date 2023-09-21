@@ -1,4 +1,6 @@
 import { getSingleCustomer } from "./apiCalls";
+import { getTotalSpent } from "./functions"
+import { roomsData } from "./scripts";
 
 const roomsContainer = document.querySelector('.rooms-container');
 const customerContainer = document.querySelector('.customer-container');
@@ -20,12 +22,13 @@ export const displayRooms = (rooms) => {
   roomsContainer.innerHTML = roomsHTML;
 }
 
-export const displayCustomerInfo = (customerID, customerBookings) => {
+export const displayCustomerInfo = (customerID, customerBookings, roomsData) => {
   let customerHTML = ``;
   customerHTML = `<div class="customer-info" id="${customerID}">`
 
     const pastBookings = customerBookings.pastBookings || [];
     const upcomingBookings = customerBookings.upcomingBookings || [];
+    const totalSpent = getTotalSpent({ pastBookings, upcomingBookings }, roomsData);
 
     getSingleCustomer(customerID)
     .then((customer) => {
@@ -36,6 +39,7 @@ export const displayCustomerInfo = (customerID, customerBookings) => {
     <p> Welcome, ${customerName}</p>
     <p>Past Bookings: ${pastBookings.length}</p>
     <p>Upcoming Bookings: ${upcomingBookings.length}</p>
+    <p>Total Spent: $${totalSpent}</p>
     </div>
     `;
 

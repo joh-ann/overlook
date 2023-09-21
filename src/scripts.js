@@ -35,26 +35,31 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
   customersData = customersDataValue;
   roomsData = roomsDataValue;
   bookingsData = bookingsDataValue;
+  
+  // QUERY SELECTORS
+  const loginForm = document.querySelector("#login-form");
+  // EVENT LISTENERS
+  loginForm.addEventListener('submit', function(event) {
+    // prevent the form from submitting
+    event.preventDefault();
+    const usernameInput = document.querySelector("#username-input");
+    const passwordInput = document.querySelector("#password-input");
+    
+    if (checkUsername(usernameInput.value) && passwordInput.value === 'overlook2021') {
+      const customerID = getCustomerID(usernameInput.value);
+      fetchCustomerBookings(customerID).then((bookings) => {
+        const customerBookings = bookings;
+        displayCustomerInfo(customerID, customerBookings, roomsData);
+      })
+      .catch((error) => {
+        console.error("Error fetching customer bookings:", error);
+      });
+    } else {
+      displayLoginErrorMsg();
+    }
+  })
 })
-
-// QUERY SELECTORS
-const loginForm = document.querySelector("#login-form");
-// EVENT LISTENERS
-loginForm.addEventListener('submit', function(event) {
-  // prevent the form from submitting
-  console.log(bookingsData)
-  event.preventDefault();
-  const usernameInput = document.querySelector("#username-input");
-  const passwordInput = document.querySelector("#password-input");
-
-  if (checkUsername(usernameInput.value) && passwordInput.value === 'overlook2021') {
-    const customerID = getCustomerID(usernameInput.value);
-    fetchCustomerBookings(customerID).then((bookings) => {
-      const customerBookings = bookings;
-      displayCustomerInfo(customerID, customerBookings);
-    })
-  } else {
-    displayLoginErrorMsg();
-  }
-})
-
+.catch((error) => {
+  console.error("Error:", error);
+});
+  
