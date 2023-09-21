@@ -83,6 +83,23 @@ main {
   width: 80vw;
 }
 
+.rooms-info {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+}
+
+.upcoming-bookings,
+.past-bookings {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.room-card {
+  height: 100px;
+  width: 100px;
+}
+
 .staff-container {
   display: flex;
   justify-content: center;

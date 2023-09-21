@@ -54,3 +54,31 @@ export const displayLoginErrorMsg = () => {
     loginErrorMsg.classList.add('hidden');
   }, 2000);
 }
+
+export const displayCustomerRooms = (customerBookings, roomsData) => {
+  let roomsHTML = ``
+  roomsHTML = `<div class="rooms-info">`
+  const upcomingBookings = customerBookings.upcomingBookings || [];
+  const pastBookings = customerBookings.pastBookings || [];
+
+  roomsHTML += `
+  <h2>Upcoming Bookings:</h2>
+  <div class="upcoming-bookings">`
+  upcomingBookings.forEach((upcomingBooking) => {
+    roomsHTML += `
+    <div class="room-card">${upcomingBooking.roomNumber}</div>
+    `
+  })
+  roomsHTML += `</div>`
+  roomsHTML += `
+  <h2>Past Bookings:</h2>
+  <div class="past-bookings">`
+  pastBookings.forEach((pastBooking) => {
+    roomsHTML += `
+    <div class="room-card">${pastBooking.roomNumber}</div>
+    `
+  })
+  roomsHTML += `</div>`
+  roomsHTML += `</div>`
+  roomsContainer.innerHTML = roomsHTML;
+}
