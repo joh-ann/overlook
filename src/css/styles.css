@@ -1,9 +1,10 @@
 * {
   border: 2px solid green;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  /* height: 100vh; */
   font-family: 'Noto Serif', serif;
 }
 
@@ -41,6 +42,14 @@ main {
   justify-content: center;
   height: 25vh;
   width: 30vw;
+
+}
+
+.customer-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
 }
 
 #username-input,
@@ -85,19 +94,28 @@ main {
 
 .rooms-info {
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  width: 60vw;
+  align-items: center;
+  width: 80vw;
+  overflow-y: auto;
+}
+
+h2 {
+  font-size: 1rem;
 }
 
 .upcoming-bookings,
 .past-bookings {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .room-card {
   height: 100px;
   width: 100px;
+  margin: 10px;
 }
 
 .staff-container {

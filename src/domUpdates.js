@@ -24,7 +24,6 @@ export const displayRooms = (rooms) => {
 
 export const displayCustomerInfo = (customerID, customerBookings, roomsData) => {
   let customerHTML = ``;
-  customerHTML = `<div class="customer-info" id="${customerID}">`
 
     const pastBookings = customerBookings.pastBookings || [];
     const upcomingBookings = customerBookings.upcomingBookings || [];
@@ -35,8 +34,8 @@ export const displayCustomerInfo = (customerID, customerBookings, roomsData) => 
       const customerName = customer;
 
     customerHTML += `
-    <div class="booking-info">
-    <p> Welcome, ${customerName}</p>
+    <div class="customer-info" id="${customerID}">
+    <p>Welcome, ${customerName}</p>
     <p>Past Bookings: ${pastBookings.length}</p>
     <p>Upcoming Bookings: ${upcomingBookings.length}</p>
     <p>Total Spent: $${totalSpent}</p>
