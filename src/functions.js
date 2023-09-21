@@ -12,3 +12,18 @@ export const getCustomerID = (username) => {
   const numberOnly = username.replace('customer', '');
   return parseInt(numberOnly);
 }
+
+export const getCustomerBookings = (customerID, bookings) => {
+  const currentDate = new Date();
+  const pastBookings = bookings.filter(booking => {
+    const bookingDate = new Date(booking.date);
+    return booking.userID === customerID && bookingDate < currentDate;
+  });
+
+  const upcomingBookings = bookings.filter(booking => {
+    const bookingDate = new Date(booking.date);
+    return booking.userID === customerID && bookingDate >= currentDate;
+  });
+
+  return { pastBookings, upcomingBookings };
+};

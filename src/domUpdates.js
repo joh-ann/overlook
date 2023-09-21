@@ -18,16 +18,19 @@ export const displayRooms = (rooms) => {
   roomsContainer.innerHTML = roomsHTML;
 }
 
-export const displayCustomerInfo = (customer, customerBookings) => {
+export const displayCustomerInfo = (customerID, customerBookings) => {
   let customerHTML = ``;
-  customerHTML = `<div class="customer-info" id="${customer.id}">`
-  customerBookings.forEach((booking) => {
-    customerHTML += 
-    `<div class="booking-info" id="${booking.id}">
-    ${booking.date}
-    ${booking.roomNumber}
-    </div>`
-  })
+  customerHTML = `<div class="customer-info" id="${customerID}">`
+
+  const pastBookings = customerBookings.pastBookings || [];
+  const upcomingBookings = customerBookings.upcomingBookings || [];
+
+  customerHTML += `
+  <div class="booking-info">
+  <p>Past Bookings: ${pastBookings.length}</p>
+  <p>Upcoming Bookings: ${upcomingBookings.length}</p>
+  </div>
+  `
   customerContainer.innerHTML = customerHTML;
 }
 

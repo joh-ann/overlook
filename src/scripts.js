@@ -6,11 +6,21 @@ import {
   fetchBookings,
   addBooking,
   deleteBooking,
-  getSingleCustomer
+  getSingleCustomer,
+  fetchCustomerBookings
 } from "./apiCalls.js";
 
-import { displayRooms, displayCustomerInfo, displayLoginErrorMsg } from "./domUpdates.js";
-import { checkUsername, getCustomerID } from "./functions.js";
+import { 
+  displayRooms,
+  displayCustomerInfo, 
+  displayLoginErrorMsg 
+} from "./domUpdates.js";
+
+import { 
+  checkUsername, 
+  getCustomerID, 
+  getCustomerBookings 
+} from "./functions.js";
 
 // USER
 let currentCustomer = {};
@@ -32,12 +42,19 @@ const loginForm = document.querySelector("#login-form");
 // EVENT LISTENERS
 loginForm.addEventListener('submit', function(event) {
   // prevent the form from submitting
+  console.log(bookingsData)
   event.preventDefault();
   const usernameInput = document.querySelector("#username-input");
   const passwordInput = document.querySelector("#password-input");
 
   if (checkUsername(usernameInput.value) && passwordInput.value === 'overlook2021') {
-    console.log(getCustomerID(usernameInput.value));
+    const customerID = getCustomerID(usernameInput.value);
+    console.log(customerID)
+    fetchCustomerBookings(customerID).then((bookings) => {
+      const customerBookings = bookings
+      console.log(customerBookings)
+      displayCustomerInfo(customerID, customerBookings)
+    })
   } else {
     displayLoginErrorMsg();
   }
