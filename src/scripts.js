@@ -23,6 +23,8 @@ import {
   getCustomerBookings,
 } from "./functions.js";
 
+import flatpickr from "flatpickr";
+
 // USER
 let currentCustomer = {};
 
@@ -31,17 +33,24 @@ let customersData = null;
 let roomsData = null;
 let bookingsData = null;
 
+
+// QUERY SELECTORS
+const loginForm = document.querySelector("#login-form");
+const bookingContainer = document.querySelector(".booking-container");
+const datePicker = document.querySelector("#datepicker");
+
+flatpickr(datePicker, {
+  dateFormat: "Y-m-d",
+  enableTime: false,
+});
+
 Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
   customersData = customersDataValue;
   roomsData = roomsDataValue;
   bookingsData = bookingsDataValue;
 
-  // QUERY SELECTORS
-  const loginForm = document.querySelector("#login-form");
-  // EVENT LISTENERS
   loginForm.addEventListener('submit', function(event) {
-    // prevent the form from submitting
     event.preventDefault();
     const usernameInput = document.querySelector("#username-input");
     const passwordInput = document.querySelector("#password-input");

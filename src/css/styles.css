@@ -79,12 +79,12 @@ main {
   width: 300px;
 }
 
-.booking {
+/* .booking-container {
   display: flex;
   justify-content: center;
   height: 20vh;
   width: 40vw; 
-}
+} */
 
 .rooms-container {
   display: flex;
