@@ -32,7 +32,7 @@ export const getTotalSpent = (allBookings, rooms) => {
   const combinedBookings = [].concat(...Object.values(allBookings));
   
   const totalCost = combinedBookings.reduce((total, booking) => {
-    const room = rooms.rooms.find(room => room.number === booking.roomNumber);
+    const room = rooms.find(room => room.number === booking.roomNumber);
     return total + (room ? room.costPerNight : 0);
   }, 0);
 

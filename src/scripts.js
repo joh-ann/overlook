@@ -15,6 +15,7 @@ import {
   displayCustomerInfo, 
   displayLoginErrorMsg,
   displayCustomerRooms,
+  displayAllRooms,
 } from "./domUpdates.js";
 
 import { 
@@ -38,17 +39,26 @@ let bookingsData = null;
 const loginForm = document.querySelector("#login-form");
 const bookingContainer = document.querySelector(".booking-container");
 const datePicker = document.querySelector("#datepicker");
+const ourRooms = document.querySelector(".our-rooms");
 
-flatpickr(datePicker, {
+const fp = flatpickr(datePicker, {
   dateFormat: "Y-m-d",
   enableTime: false,
 });
 
 Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
-  customersData = customersDataValue;
-  roomsData = roomsDataValue;
-  bookingsData = bookingsDataValue;
+  customersData = customersDataValue.customers;
+  roomsData = roomsDataValue.rooms;
+  bookingsData = bookingsDataValue.bookings;
+
+  ourRooms.addEventListener('click', function() {
+    console.log('u clicked me?')
+    console.log(roomsData)
+    console.log(customersData)
+    console.log(bookingsData)
+    displayAllRooms(roomsData)
+  });
 
   loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -70,5 +80,8 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
     } else {
       displayLoginErrorMsg();
     }
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
   })
 })
