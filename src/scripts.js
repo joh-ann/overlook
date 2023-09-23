@@ -1,5 +1,9 @@
-import "./css/styles.css";
+// PACKAGES
+import flatpickr from "flatpickr";
+import MicroModal from 'micromodal';
 MicroModal.init();
+
+import "./css/styles.css";
 
 import {
   fetchCustomers,
@@ -25,10 +29,7 @@ import {
   getCustomerBookings,
 } from "./functions.js";
 
-// PACKAGES
-import flatpickr from "flatpickr";
-import MicroModal from 'micromodal';
-
+// IMAGES
 import "./images/junior suite-1.png";
 import "./images/junior suite-2.png";
 import "./images/residential suite-1.png";
@@ -46,18 +47,12 @@ let customersData = null;
 let roomsData = null;
 let bookingsData = null;
 
-
 // QUERY SELECTORS
 const loginForm = document.querySelector("#login-form");
 const bookingContainer = document.querySelector(".booking-container");
-const datePicker = document.querySelector("#datepicker");
 const ourRooms = document.querySelector(".our-rooms");
 const homePage = document.querySelector(".home");
-
-const fp = flatpickr(datePicker, {
-  dateFormat: "Y-m-d",
-  enableTime: false,
-});
+const reservationBtn = document.querySelector(".reservation-btn");
 
 Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
@@ -96,3 +91,10 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
     displayCustomerRooms(currentCustomer.bookings, roomsData);
   });
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+  reservationBtn.addEventListener('click', function() {
+    const input = document.querySelector('[data-input]');
+    flatpickr(input);
+  });
+});
