@@ -111,21 +111,28 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 })
 
 // MODAL & FLATPICKR
-reservationBtn.addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const input = document.getElementById('date-input');
 
   flatpickr(input, {
     dateFormat: "Y/m/d"
   })
 
+  reservationBtn.addEventListener('click', function(event) {
+    flatpickr(input, {
+      dateFormat: "Y/m/d"
+    });
+  })
+
   input.addEventListener('change', function(event) {
-    const selectedDate = event.target.value;
+    const selectedDate = input.value;
     console.log('Selected date:', selectedDate);
   })
 
-
   openCalBtn.addEventListener('click', function() {
-    flatpickr(input).open();
+    flatpickr(input, {
+      dateFormat: "Y/m/d"
+    }).open();
   })
 
   findRoomBtn.addEventListener('click', function(event) {
@@ -142,7 +149,9 @@ reservationBtn.addEventListener('click', function() {
   })
 
   clearDateBtn.addEventListener('click', function() {
-    flatpickr(input).clear();
+    flatpickr(input, {
+      dateFormat: "Y/m/d"
+    }).clear();
     clearRoomSearch();
   })
 
