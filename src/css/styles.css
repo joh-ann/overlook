@@ -6,6 +6,7 @@
 
 html {
   font-family: 'Noto Serif', serif;
+  height: 100vh;
 }
 
 /* fonts
@@ -22,10 +23,6 @@ header {
   font-family: 'Manrope', sans-serif;
 }
 
-body {
-  height: 100vh;
-}
-
 nav {
   display: flex;
   justify-content: flex-start;
@@ -34,7 +31,7 @@ nav {
 main {
   display: flex;
   justify-content: center;
-  height: 70vh;
+  height: 65vh;
 }
 
 .customer-container {
@@ -78,13 +75,6 @@ main {
   flex-direction: column;
   width: 300px;
 }
-
-/* .booking-container {
-  display: flex;
-  justify-content: center;
-  height: 20vh;
-  width: 40vw; 
-} */
 
 .rooms-container {
   display: flex;
@@ -131,3 +121,31 @@ h2 {
   font-weight: 700;
 }
 
+.rooms-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+  overflow-y: auto;
+  margin: 10px;
+  padding: 50px;
+}
+
+.room-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 650px;
+  margin: 15px;
+}
+
+.room-info {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  flex-direction: column;
+}
+
+.room-img {
+  height: 200px;
+  width: 400px;
+}

@@ -85,16 +85,21 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
 export const displayAllRooms = (roomsData) => {
   let roomsHTML = ``
 
+  roomsHTML += `<div class="rooms-list">`
   roomsData.forEach((room) => {
     roomsHTML += `
-    <div class="room-info">
-    Room Number: ${room.number}
-    Room Type: ${room.roomType}
-    Bed Size: ${room.bedSize}
-    Number of Beds: ${room.numBeds}
-    Cost: ${room.costPerNight}
+    <div class="room-wrapper">
+      <img src="${room.Type}.png" class="room-img">
+        <div class="room-info">
+          <p>Room Number: ${room.number}</p>
+          <p>Room Type: ${room.roomType}</p>
+          <p>Bed Size: ${room.bedSize}</p>
+          <p>Number of Beds: ${room.numBeds}</p>
+          <p>Cost per Night: $${room.costPerNight}</p>
+        </div>
     </div>
     `
   })
+  roomsHTML += `</div>`
   roomsContainer.innerHTML = roomsHTML;
 }
