@@ -38,3 +38,17 @@ export const getTotalSpent = (allBookings, rooms) => {
 
   return totalCost;
 }
+
+export const getAvailableRooms = (selectedDate, allBookings, rooms) => {
+  // Get the selected date input
+  // Iterate through all bookings and filter out the bookings that match the selected date
+  // Only store the booking room numbers
+  // Filter out rooms that are not in the bookedRoomNumbers array to return available rooms
+  const bookedRoomNumbers = allBookings
+    .filter((booking) => booking.date === selectedDate)
+    .map((booking) => booking.roomNumber);
+
+    const availableRooms = rooms.filter((room) => !bookedRoomNumbers.includes(room.number));
+    console.log(availableRooms)
+    return availableRooms;
+}

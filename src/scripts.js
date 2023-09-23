@@ -28,6 +28,7 @@ import {
   checkUsername, 
   getCustomerID, 
   getCustomerBookings,
+  getAvailableRooms,
 } from "./functions.js";
 
 // IMAGES
@@ -128,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
   findRoomBtn.addEventListener('click', function(event) {
     const selectedDate = input.value;
     console.log('Searching for...', selectedDate);
+    getAvailableRooms(selectedDate, bookingsData, roomsData);
   });
 
   clearDateBtn.addEventListener('click', function() {
