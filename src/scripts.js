@@ -155,16 +155,14 @@ document.addEventListener('DOMContentLoaded', function() {
     clearRoomSearch();
   })
 
-  // // BOOK ROOM BUTTON
-  // document.addEventListener('click', function(event) {
-  //   if (event.target.classList.contains("book-room-btn")) {
-  //     console.log('clicked')
-  //     console.log(currentCustomer)
-  //     console.log(event.target.id)
-  //     console.log(date)
-  //     addBooking(currentCustomer.id, input, event.target.id)
-  //   }
-  // });
+  // BOOK ROOM BUTTON
+  document.addEventListener('click', function(event) {
+    if (event.target.classList.contains("book-room-btn")) {
+      let selectedDate = input.value;
+      let roomNumber = parseInt(event.target.id);
+      addBooking(currentCustomer.id, selectedDate, roomNumber)
+    }
+  });
 });
 
 aboutUsPage.addEventListener('click', function(event) {
