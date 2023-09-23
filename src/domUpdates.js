@@ -54,7 +54,7 @@ export const displayLoginErrorMsg = () => {
   }, 2000);
 }
 
-export const displayCustomerRooms = (customerBookings, roomsData) => {
+export const displayCustomerRooms = (customerBookings) => {
   let roomsHTML = ``
   roomsHTML = `<div class="rooms-info">`
   const upcomingBookings = customerBookings.upcomingBookings || [];

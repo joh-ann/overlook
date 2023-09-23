@@ -49,6 +49,7 @@ const loginForm = document.querySelector("#login-form");
 const bookingContainer = document.querySelector(".booking-container");
 const datePicker = document.querySelector("#datepicker");
 const ourRooms = document.querySelector(".our-rooms");
+const homePage = document.querySelector(".home");
 
 const fp = flatpickr(datePicker, {
   dateFormat: "Y-m-d",
@@ -74,7 +75,8 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
       const customerID = getCustomerID(usernameInput.value);
       fetchCustomerBookings(customerID).then((bookings) => {
         const customerBookings = bookings;
-        console.log(customerBookings)
+        currentCustomer.id = customerID;
+        currentCustomer.bookings = customerBookings;
         displayCustomerInfo(customerID, customerBookings, roomsData)
         displayCustomerRooms(customerBookings)
       })
@@ -85,5 +87,10 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
     } else {
       displayLoginErrorMsg();
     }
+  })
+
+  homePage.addEventListener('click', function(event) {
+    displayCustomerInfo(currentCustomer.id, currentCustomer.bookings, roomsData);
+    displayCustomerRooms(currentCustomer.bookings);
   })
 })
