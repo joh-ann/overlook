@@ -336,17 +336,28 @@ h2 {
   gap: 5px;
 }
 
-.fas.fa-calendar {
+.fa-regular.fa-calendar {
   display: flex;
   justify-content: center;
-  font-size: 34px;
+  padding-top: 2px;
+  font-size: 28px;
+  color: #22577A;
+  cursor: pointer;
+}
+
+.fa-solid.fa-magnifying-glass {
+  display: flex;
+  justify-content: center;
+  font-size: 26px;
+  padding-top: 4px;
   cursor: pointer;
 }
 
 .fas.fa-times {
   display: flex;
   justify-content: center;
-  font-size: 34px;
+  font-size: 30px;
+  padding-top: 2px;
   color: red;
   cursor: pointer;
 }
