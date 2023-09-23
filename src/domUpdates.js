@@ -89,7 +89,7 @@ export const displayAllRooms = (roomsData) => {
   roomsData.forEach((room) => {
     roomsHTML += `
     <div class="room-wrapper">
-      <img src="${room.Type}.png" class="room-img">
+      <img src="${room.Type}-${room.numBeds}.png" class="room-img">
         <div class="room-info">
           <p>Room Number: ${room.number}</p>
           <p>Room Type: ${room.roomType}</p>
