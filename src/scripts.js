@@ -26,6 +26,15 @@ import {
 
 import flatpickr from "flatpickr";
 
+import "./images/junior suite-1.png";
+import "./images/junior suite-2.png";
+import "./images/residential suite-1.png";
+import "./images/residential suite-2.png";
+import "./images/single room-1.png";
+import "./images/single room-2.png";
+import "./images/suite-1.png"
+import "./images/suite-2.png"
+
 // USER
 let currentCustomer = {};
 
