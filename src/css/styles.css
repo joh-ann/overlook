@@ -414,3 +414,21 @@ input {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
+
+.no-available-rooms {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  width: 400px;
+  color: red;
+}
+
+.no-selected-date {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  width: 400px;
+  color: red;
+}

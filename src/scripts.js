@@ -23,6 +23,8 @@ import {
   displayAllRooms,
   displayAboutUs,
   displayAvailableRooms,
+  displayNoDateSelected,
+  clearRoomSearch,
 } from "./domUpdates.js";
 
 import { 
@@ -129,13 +131,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   findRoomBtn.addEventListener('click', function(event) {
     const selectedDate = input.value;
+
+    if (selectedDate.length === 0) {
+      displayNoDateSelected();
+    } else {
     console.log('Searching for...', selectedDate);
     const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
     displayAvailableRooms(availableRooms);
+    }
   });
 
   clearDateBtn.addEventListener('click', function() {
     flatpickr(input).clear();
+    clearRoomSearch();
   });
 });
 

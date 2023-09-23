@@ -135,22 +135,48 @@ export const displayAboutUs = () => {
 }
 
 export const displayAvailableRooms = (availableRooms) => {
-  let availableRoomsHTML = ``
-
-  availableRooms.forEach((room) => {
-    availableRoomsHTML += `
-    <div class="available-room-card">
-      <img src="images/${room.roomType}-${room.numBeds}.png" class="room-img">
-      <div class="available-room-info">
-        <p>Room #: ${room.number}</p>
-        <p>Type: ${room.roomType}</p>
-        <p>Bed: ${room.bedSize}</p>
-        <p># of Beds: ${room.numBeds}</p>
-        <p>Cost: $${room.costPerNight}/night</p>
-        <button class="book-room-btn">Book Room</button>
+  if (availableRooms.length === 0) {
+    let availableRoomsHTML = ``
+      availableRoomsHTML += `
+      <div class="no-available-rooms">
+        <p>Sorry, no rooms are available for the selected date. Please choose a different date or contact us for assistance.</p>
       </div>
-    </div>`
-  })
+      `
+    availableRoomsContainer.innerHTML = availableRoomsHTML;
+  } else {
+    let availableRoomsHTML = ``
+
+    availableRooms.forEach((room) => {
+      availableRoomsHTML += `
+      <div class="available-room-card">
+        <img src="images/${room.roomType}-${room.numBeds}.png" class="room-img">
+        <div class="available-room-info">
+          <p>Room #: ${room.number}</p>
+          <p>Type: ${room.roomType}</p>
+          <p>Bed: ${room.bedSize}</p>
+          <p># of Beds: ${room.numBeds}</p>
+          <p>Cost: $${room.costPerNight}/night</p>
+          <button class="book-room-btn">Book Room</button>
+        </div>
+      </div>`
+    })
+
+    availableRoomsContainer.innerHTML = availableRoomsHTML;
+  }
+}
+
+export const displayNoDateSelected = () => {
+  let availableRoomsHTML = ``
+  availableRoomsHTML += `
+  <div class="no-selected-date">
+    <p>Please select a date to check room availability.</p>
+  </div>
+  `
+  availableRoomsContainer.innerHTML = availableRoomsHTML;
+}
+
+export const clearRoomSearch = () => {
+  let availableRoomsHTML = ``
 
   availableRoomsContainer.innerHTML = availableRoomsHTML;
 }
