@@ -1,4 +1,5 @@
 import "./css/styles.css";
+MicroModal.init();
 
 import {
   fetchCustomers,
@@ -24,7 +25,9 @@ import {
   getCustomerBookings,
 } from "./functions.js";
 
+// PACKAGES
 import flatpickr from "flatpickr";
+import MicroModal from 'micromodal';
 
 import "./images/junior suite-1.png";
 import "./images/junior suite-2.png";
@@ -86,10 +89,10 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
     } else {
       displayLoginErrorMsg();
     }
-  })
+  });
 
   homePage.addEventListener('click', function(event) {
     displayCustomerInfo(currentCustomer.id, currentCustomer.bookings, roomsData);
     displayCustomerRooms(currentCustomer.bookings, roomsData);
-  })
+  });
 })

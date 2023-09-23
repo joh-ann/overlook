@@ -16,11 +16,34 @@
   <div class="about-us">ABOUT US</div>
   <div class="our-rooms">OUR ROOMS</div>
   <div class="logo">Overlook</div>
-  <div class="reservation">RESERVATION</div>
+  <button class="reservation-btn" data-micromodal-trigger="modal-1">RESERVATION</button>
   <div class="contact">contact</div>
   <div class="staff">staff</div>
 </header>
 <body>
+  <!-- MODAL -->
+  <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-1-title">
+            Book A Room
+          </h2>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+        </header>
+        <main class="modal__content" id="modal-1-content">
+          <p>
+            Try hitting the <code>tab</code> key and notice how the focus stays within the modal itself. Also, <code>esc</code> to close modal.
+          </p>
+        </main>
+        <footer class="modal__footer">
+          <button class="modal__btn modal__btn-primary">Continue</button>
+          <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL END -->
   <nav>
     <div class="customer-container">
       <form id="login-form">
@@ -32,7 +55,7 @@
         <div class="login-error-msg hidden">Invalid login information</div>
       </form>
     </div>
-    <section class="booking-container">
+    <section class="booking-container hidden">
       booking
       <input type="text" id="datepicker">
     </section>

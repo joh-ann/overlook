@@ -35,10 +35,10 @@ export const displayCustomerInfo = (customerID, customerBookings, roomsData) => 
 
     customerHTML += `
     <div class="customer-info" id="${customerID}">
-    <p>Welcome, ${customerName}</p>
-    <p>Past Bookings: ${pastBookings.length}</p>
-    <p>Upcoming Bookings: ${upcomingBookings.length}</p>
-    <p>Total Spent: $${totalSpent}</p>
+      <p>Welcome, ${customerName}</p>
+      <p>Past Bookings: ${pastBookings.length}</p>
+      <p>Upcoming Bookings: ${upcomingBookings.length}</p>
+      <p>Total Spent: $${totalSpent}</p>
     </div>
     `;
 
@@ -59,17 +59,15 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
   roomsHTML = `<div class="rooms-info">`
   const upcomingBookings = customerBookings.upcomingBookings || [];
   const pastBookings = customerBookings.pastBookings || [];
-  console.log(upcomingBookings)
 
   roomsHTML += `
   <h2>Upcoming Bookings:</h2>
   <div class="upcoming-bookings">`
   upcomingBookings.forEach((upcomingBooking) => {
     const matchedRoom = roomsData.find((room) => room.number === upcomingBooking.roomNumber)
-    console.log(matchedRoom)
     roomsHTML += `
     <div class="room-card">
-      <img src="src/images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
+      <img src="images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
       <div class="room-card-info">
         <p>Room #: ${matchedRoom.number}</p>
         <p>Type: ${matchedRoom.roomType}</p>
@@ -86,10 +84,9 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
   <div class="past-bookings">`
   pastBookings.forEach((pastBooking) => {
     const matchedRoom = roomsData.find((room) => room.number === pastBooking.roomNumber)
-    console.log(matchedRoom)
     roomsHTML += `
     <div class="room-card">
-      <img src="src/images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
+      <img src="images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
       <div class="room-card-info">
         <p>Room #: ${matchedRoom.number}</p>
         <p>Type: ${matchedRoom.roomType}</p>
@@ -112,7 +109,7 @@ export const displayAllRooms = (roomsData) => {
   roomsData.forEach((room) => {
     roomsHTML += `
     <div class="room-wrapper">
-      <img src="src/images/${room.roomType}-${room.numBeds}.png" class="room-img">
+      <img src="images/${room.roomType}-${room.numBeds}.png" class="room-img">
         <div class="room-info">
           <p>Room #: ${room.number}</p>
           <p>Type: ${room.roomType}</p>
@@ -122,7 +119,6 @@ export const displayAllRooms = (roomsData) => {
         </div>
     </div>
     `
-    console.log(`${room.roomType}-${room.numBeds}`)
   })
   roomsHTML += `</div>`
   roomsContainer.innerHTML = roomsHTML;
