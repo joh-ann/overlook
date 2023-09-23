@@ -168,7 +168,7 @@ export const displayAvailableRooms = (availableRooms) => {
           <p>Bed: ${room.bedSize}</p>
           <p># of Beds: ${room.numBeds}</p>
           <p>Cost: $${room.costPerNight}/night</p>
-          <button class="book-room-btn">Book Room</button>
+          <button class="book-room-btn" id=${room.number}>Book Room</button>
         </div>
       </div>`
     })

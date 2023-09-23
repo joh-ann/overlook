@@ -111,23 +111,22 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 })
 
 // MODAL & FLATPICKR
-document.addEventListener('DOMContentLoaded', function() {
+reservationBtn.addEventListener('click', function() {
   const input = document.getElementById('date-input');
+
+  flatpickr(input, {
+    dateFormat: "Y/m/d"
+  })
 
   input.addEventListener('change', function(event) {
     const selectedDate = event.target.value;
     console.log('Selected date:', selectedDate);
-  });
+  })
 
-  reservationBtn.addEventListener('click', function() {
-    flatpickr(input, {
-      dateFormat: "Y/m/d"
-    })
-  });
 
   openCalBtn.addEventListener('click', function() {
     flatpickr(input).open();
-  });
+  })
 
   findRoomBtn.addEventListener('click', function(event) {
     const selectedDate = input.value;
@@ -140,12 +139,23 @@ document.addEventListener('DOMContentLoaded', function() {
     displayAvailableRooms(availableRooms);
     console.log(currentCustomer)
     }
-  });
+  })
 
   clearDateBtn.addEventListener('click', function() {
     flatpickr(input).clear();
     clearRoomSearch();
-  });
+  })
+
+  // // BOOK ROOM BUTTON
+  // document.addEventListener('click', function(event) {
+  //   if (event.target.classList.contains("book-room-btn")) {
+  //     console.log('clicked')
+  //     console.log(currentCustomer)
+  //     console.log(event.target.id)
+  //     console.log(date)
+  //     addBooking(currentCustomer.id, input, event.target.id)
+  //   }
+  // });
 });
 
 aboutUsPage.addEventListener('click', function(event) {
