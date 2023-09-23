@@ -22,12 +22,14 @@ import {
   displayCustomerRooms,
   displayAllRooms,
   displayAboutUs,
+  displayAvailableRooms,
 } from "./domUpdates.js";
 
 import { 
   checkUsername, 
   getCustomerID, 
   getCustomerBookings,
+  getAvailableRooms,
 } from "./functions.js";
 
 // IMAGES
@@ -56,13 +58,17 @@ let roomsData = null;
 let bookingsData = null;
 
 // QUERY SELECTORS
+// DISPLAYS
 const loginForm = document.querySelector("#login-form");
 const ourRooms = document.querySelector(".our-rooms");
 const homePage = document.querySelector(".home");
+const aboutUsPage = document.querySelector(".about-us");
+
+// BUTTONS
+const clearDateBtn = document.querySelector(".clear-date-btn");
 const reservationBtn = document.querySelector(".reservation-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
-const clearDateBtn = document.querySelector(".clear-date-btn");
-const aboutUsPage = document.querySelector(".about-us");
+const findRoomBtn = document.querySelector(".find-room-btn");
 
 Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
@@ -112,16 +118,25 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   reservationBtn.addEventListener('click', function() {
-    flatpickr(input)
+    flatpickr(input, {
+      dateFormat: "Y/m/d"
+    })
   });
 
   openCalBtn.addEventListener('click', function() {
     flatpickr(input).open();
-  })
+  });
+
+  findRoomBtn.addEventListener('click', function(event) {
+    const selectedDate = input.value;
+    console.log('Searching for...', selectedDate);
+    const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
+    displayAvailableRooms(availableRooms);
+  });
 
   clearDateBtn.addEventListener('click', function() {
     flatpickr(input).clear();
-  })
+  });
 });
 
 aboutUsPage.addEventListener('click', function(event) {

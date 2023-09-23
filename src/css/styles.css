@@ -193,7 +193,8 @@ h2 {
 .modal__container {
   background-color: #fff;
   padding: 30px;
-  max-width: 800px;
+  width: 900px;
+  max-width: 1000px;
   max-height: 100vh;
   border-radius: 25px;
   overflow-y: auto;
@@ -224,6 +225,10 @@ h2 {
 .modal__header .modal__close:before { content: "\2715"; }
 
 .modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
   line-height: 1.5;
@@ -326,7 +331,6 @@ h2 {
 .flatpickr-wrapper {
   display: flex;
   justify-content: center;
-  width: 800px;
 }
 
 .flatpickr {
@@ -336,17 +340,28 @@ h2 {
   gap: 5px;
 }
 
-.fas.fa-calendar {
+.fa-regular.fa-calendar {
   display: flex;
   justify-content: center;
-  font-size: 34px;
+  padding-top: 2px;
+  font-size: 28px;
+  color: #22577A;
+  cursor: pointer;
+}
+
+.fa-solid.fa-magnifying-glass {
+  display: flex;
+  justify-content: center;
+  font-size: 26px;
+  padding-top: 4px;
   cursor: pointer;
 }
 
 .fas.fa-times {
   display: flex;
   justify-content: center;
-  font-size: 34px;
+  font-size: 30px;
+  padding-top: 2px;
   color: red;
   cursor: pointer;
 }
@@ -358,4 +373,44 @@ input {
 .logo {
   height: 100px;
   width: 200px;
+}
+
+.selected-date-rooms {
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  width: 750px;
+  overflow-y: auto;
+}
+
+.available-room-card {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 10px 0px 10px;
+}
+
+.available-room-info {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  justify-content: flex-start;
+}
+
+.book-room-btn {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  height: 40px;
+  width: 100px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #00449e;
+  color: #fff;
+}
+
+.book-room-btn:focus, .book-room-btn:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
