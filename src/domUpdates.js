@@ -6,10 +6,6 @@ const roomsContainer = document.querySelector('.rooms-container');
 const customerContainer = document.querySelector('.customer-container');
 const loginErrorMsg = document.querySelector('.login-error-msg');
 
-// I should see a dashboard page that shows me:
-// Any room bookings I have made (past or upcoming)
-// The total amount I have spent on rooms
-
 export const displayRooms = (rooms) => {
   let roomsHTML = ``;
   rooms.forEach((room) => {

@@ -112,7 +112,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   reservationBtn.addEventListener('click', function() {
-    flatpickr(input)
+    flatpickr(input, {
+      dateFormat: "Y/m/d"
+    })
   });
 
   openCalBtn.addEventListener('click', function() {
