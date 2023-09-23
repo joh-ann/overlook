@@ -132,3 +132,4 @@ export const displayAboutUs = () => {
 
   roomsContainer.innerHTML = aboutUsHTML
 }
+

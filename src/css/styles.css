@@ -193,7 +193,8 @@ h2 {
 .modal__container {
   background-color: #fff;
   padding: 30px;
-  max-width: 800px;
+  width: 900px;
+  max-width: 1000px;
   max-height: 100vh;
   border-radius: 25px;
   overflow-y: auto;
@@ -224,6 +225,10 @@ h2 {
 .modal__header .modal__close:before { content: "\2715"; }
 
 .modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
   line-height: 1.5;
@@ -326,7 +331,6 @@ h2 {
 .flatpickr-wrapper {
   display: flex;
   justify-content: center;
-  width: 800px;
 }
 
 .flatpickr {
@@ -369,4 +373,10 @@ input {
 .logo {
   height: 100px;
   width: 200px;
+}
+
+.selected-date-rooms {
+  display: flex;
+  height: 550px;
+  width: 750px;
 }
