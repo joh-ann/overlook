@@ -55,15 +55,24 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
   let roomsHTML = ``
   roomsHTML = `<div class="rooms-info">`
   const upcomingBookings = customerBookings.upcomingBookings || [];
+    // Sort by date
+    upcomingBookings.sort((bookingA, bookingB) => {
+      return bookingA.date.localeCompare(bookingB.date);
+    });
   const pastBookings = customerBookings.pastBookings || [];
+    // Sort by date
+    pastBookings.sort((bookingA, bookingB) => {
+      return bookingA.date.localeCompare(bookingB.date);
+    });
+    
+  roomsHTML += `<h2>Upcoming Bookings:</h2>`
+  roomsHTML += `<div class="upcoming-bookings">`
 
-  roomsHTML += `
-  <h2>Upcoming Bookings:</h2>
-  <div class="upcoming-bookings">`
   upcomingBookings.forEach((upcomingBooking) => {
     const matchedRoom = roomsData.find((room) => room.number === upcomingBooking.roomNumber)
     roomsHTML += `
     <div class="room-card">
+      <div class="date-overlay"><p>${upcomingBooking.date}</p></div>
       <img src="images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
       <div class="room-card-info">
         <p>Room #: ${matchedRoom.number}</p>
@@ -76,13 +85,15 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
     `
   })
   roomsHTML += `</div>`
-  roomsHTML += `
-  <h2>Past Bookings:</h2>
-  <div class="past-bookings">`
+
+  roomsHTML += `<h2>Past Bookings:</h2>`
+  roomsHTML += `<div class="past-bookings">`
+
   pastBookings.forEach((pastBooking) => {
     const matchedRoom = roomsData.find((room) => room.number === pastBooking.roomNumber)
     roomsHTML += `
     <div class="room-card">
+    <div class="date-overlay"><p>${pastBooking.date}</p></div>
       <img src="images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
       <div class="room-card-info">
         <p>Room #: ${matchedRoom.number}</p>
@@ -96,6 +107,7 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
   })
   roomsHTML += `</div>`
   roomsHTML += `</div>`
+  
   roomsContainer.innerHTML = roomsHTML;
 }
 

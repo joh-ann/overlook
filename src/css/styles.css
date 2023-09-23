@@ -107,6 +107,7 @@ h2 {
   width: 340px;
   margin: 10px;
   padding: 20px;
+  position: relative;
 }
 
 .room-icon-img {
@@ -431,4 +432,15 @@ input {
   text-align: center;
   width: 400px;
   color: red;
+}
+
+/* DATE OVERLAY */
+.date-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  font-size: small;
+  font-weight: bold;
 }
