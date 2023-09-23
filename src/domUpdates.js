@@ -123,3 +123,16 @@ export const displayAllRooms = (roomsData) => {
   roomsHTML += `</div>`
   roomsContainer.innerHTML = roomsHTML;
 }
+
+export const displayAboutUs = () => {
+  let aboutUsHTML = ``
+
+  aboutUsHTML += `
+  <div class="about-us-info">
+    <p><strong><em>"Overlook,"</em></strong> our contemporary hotel nestled in Kyoto's temple district, invites you to experience a modern garden sanctuary steeped in history. As you wander along the tall, slender bamboo stems that guide your path, you'll encounter our heart and soul: the 800-year-old <em>Shakusui-en</em>, a pond garden that gracefully connects our hotel with tradition, artistry, and the wonders of nature. Ranked as #100 in the <em>"Travel + Leisure"</em> World's Best Awards for 2023, we are proud to provide you with an intimate escape that blends the old and the new.</p>
+
+    <p>Each morning, you can witness the sun's gentle touch as it bathes the landscape beyond your room's <em>floor-to-ceiling windows</em> in its golden glow. Whether it's cherry blossoms in spring, lush greenery in summer, vivid red foliage in autumn, or snow-dusted mountain peaks in winter, you'll be enchanted by the ever-changing beauty of Kyoto. In this captivating city, secrets are cherished, and we are here to guide you in uncovering its hidden gems.</p>    
+  </div>`;
+
+  roomsContainer.innerHTML = aboutUsHTML
+}

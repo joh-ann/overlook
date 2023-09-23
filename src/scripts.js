@@ -21,6 +21,7 @@ import {
   displayLoginErrorMsg,
   displayCustomerRooms,
   displayAllRooms,
+  displayAboutUs,
 } from "./domUpdates.js";
 
 import { 
@@ -54,6 +55,7 @@ const homePage = document.querySelector(".home");
 const reservationBtn = document.querySelector(".reservation-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
 const clearDateBtn = document.querySelector(".clear-date-btn");
+const aboutUsPage = document.querySelector(".about-us");
 
 Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
@@ -114,3 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     flatpickr(input).clear();
   })
 });
+
+aboutUsPage.addEventListener('click', function(event) {
+  displayAboutUs();
+})
