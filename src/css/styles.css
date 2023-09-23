@@ -326,7 +326,7 @@ h2 {
 .flatpickr-wrapper {
   display: flex;
   justify-content: center;
-  width: 1000px;
+  width: 800px;
 }
 
 .flatpickr {
@@ -340,6 +340,7 @@ h2 {
   display: flex;
   justify-content: center;
   font-size: 34px;
+  cursor: pointer;
 }
 
 .fas.fa-times {
@@ -347,8 +348,9 @@ h2 {
   justify-content: center;
   font-size: 34px;
   color: red;
+  cursor: pointer;
 }
 
 input {
-  font-size: 24px;
+  font-size: 16px;
 }

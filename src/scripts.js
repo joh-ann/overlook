@@ -49,10 +49,11 @@ let bookingsData = null;
 
 // QUERY SELECTORS
 const loginForm = document.querySelector("#login-form");
-const bookingContainer = document.querySelector(".booking-container");
 const ourRooms = document.querySelector(".our-rooms");
 const homePage = document.querySelector(".home");
 const reservationBtn = document.querySelector(".reservation-btn");
+const openCalBtn = document.querySelector(".open-cal-btn");
+const clearDateBtn = document.querySelector(".clear-date-btn");
 
 Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
@@ -92,9 +93,24 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
   });
 })
 
+// MODAL & FLATPICKR
 document.addEventListener('DOMContentLoaded', function() {
-  reservationBtn.addEventListener('click', function() {
-    const input = document.querySelector('[data-input]');
-    flatpickr(input);
+  const input = document.getElementById('date-input');
+
+  input.addEventListener('change', function(event) {
+    const selectedDate = event.target.value;
+    console.log('Selected date:', selectedDate);
   });
+
+  reservationBtn.addEventListener('click', function() {
+    flatpickr(input)
+  });
+
+  openCalBtn.addEventListener('click', function() {
+    flatpickr(input).open();
+  })
+
+  clearDateBtn.addEventListener('click', function() {
+    flatpickr(input).clear();
+  })
 });
