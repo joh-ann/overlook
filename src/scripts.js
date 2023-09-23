@@ -37,8 +37,15 @@ import "./images/residential suite-1.png";
 import "./images/residential suite-2.png";
 import "./images/single room-1.png";
 import "./images/single room-2.png";
-import "./images/suite-1.png"
-import "./images/suite-2.png"
+import "./images/suite-1.png";
+import "./images/suite-2.png";
+import "./images/overlook-dining.png";
+import "./images/overlook-downtown.png";
+import "./images/overlook-lobby.png";
+import "./images/overlook-logo.png";
+import "./images/overlook-pond.png";
+import "./images/overlook-room.png";
+import "./images/overlook-spa.png";
 
 // USER
 let currentCustomer = {};
