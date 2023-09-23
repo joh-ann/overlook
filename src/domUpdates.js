@@ -54,18 +54,30 @@ export const displayLoginErrorMsg = () => {
   }, 2000);
 }
 
-export const displayCustomerRooms = (customerBookings) => {
+export const displayCustomerRooms = (customerBookings, roomsData) => {
   let roomsHTML = ``
   roomsHTML = `<div class="rooms-info">`
   const upcomingBookings = customerBookings.upcomingBookings || [];
   const pastBookings = customerBookings.pastBookings || [];
+  console.log(upcomingBookings)
 
   roomsHTML += `
   <h2>Upcoming Bookings:</h2>
   <div class="upcoming-bookings">`
   upcomingBookings.forEach((upcomingBooking) => {
+    const matchedRoom = roomsData.find((room) => room.number === upcomingBooking.roomNumber)
+    console.log(matchedRoom)
     roomsHTML += `
-    <div class="room-card">${upcomingBooking.roomNumber}</div>
+    <div class="room-card">
+      <img src="src/images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
+      <div class="room-card-info">
+        <p>Room #: ${matchedRoom.number}</p>
+        <p>Type: ${matchedRoom.roomType}</p>
+        <p>Bed: ${matchedRoom.bedSize}</p>
+        <p># of Beds: ${matchedRoom.numBeds}</p>
+        <p>Cost: $${matchedRoom.costPerNight}/night</p>
+      </div>
+    </div>
     `
   })
   roomsHTML += `</div>`
@@ -73,8 +85,19 @@ export const displayCustomerRooms = (customerBookings) => {
   <h2>Past Bookings:</h2>
   <div class="past-bookings">`
   pastBookings.forEach((pastBooking) => {
+    const matchedRoom = roomsData.find((room) => room.number === pastBooking.roomNumber)
+    console.log(matchedRoom)
     roomsHTML += `
-    <div class="room-card">${pastBooking.roomNumber}</div>
+    <div class="room-card">
+      <img src="src/images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
+      <div class="room-card-info">
+        <p>Room #: ${matchedRoom.number}</p>
+        <p>Type: ${matchedRoom.roomType}</p>
+        <p>Bed: ${matchedRoom.bedSize}</p>
+        <p># of Beds: ${matchedRoom.numBeds}</p>
+        <p>Cost: $${matchedRoom.costPerNight}/night</p>
+      </div>
+    </div>
     `
   })
   roomsHTML += `</div>`
@@ -91,11 +114,11 @@ export const displayAllRooms = (roomsData) => {
     <div class="room-wrapper">
       <img src="src/images/${room.roomType}-${room.numBeds}.png" class="room-img">
         <div class="room-info">
-          <p>Room Number: ${room.number}</p>
-          <p>Room Type: ${room.roomType}</p>
-          <p>Bed Size: ${room.bedSize}</p>
-          <p>Number of Beds: ${room.numBeds}</p>
-          <p>Cost per Night: $${room.costPerNight}</p>
+          <p>Room #: ${room.number}</p>
+          <p>Type: ${room.roomType}</p>
+          <p>Bed: ${room.bedSize}</p>
+          <p># of Beds: ${room.numBeds}</p>
+          <p>Cost: $${room.costPerNight}/night</p>
         </div>
     </div>
     `

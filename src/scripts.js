@@ -78,9 +78,8 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
         currentCustomer.id = customerID;
         currentCustomer.bookings = customerBookings;
         displayCustomerInfo(customerID, customerBookings, roomsData)
-        displayCustomerRooms(customerBookings)
+        displayCustomerRooms(customerBookings, roomsData)
       })
-
       .catch((error) => {
         console.error("Error fetching customer bookings:", error);
       });
@@ -91,6 +90,6 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 
   homePage.addEventListener('click', function(event) {
     displayCustomerInfo(currentCustomer.id, currentCustomer.bookings, roomsData);
-    displayCustomerRooms(currentCustomer.bookings);
+    displayCustomerRooms(currentCustomer.bookings, roomsData);
   })
 })

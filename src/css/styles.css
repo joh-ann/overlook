@@ -101,9 +101,27 @@ h2 {
 }
 
 .room-card {
-  height: 100px;
-  width: 100px;
+  display: flex;
+  justify-content: center;
+  height: 110px;
+  width: 340px;
   margin: 10px;
+  padding: 20px;
+}
+
+.room-icon-img {
+  display: flex;
+  height: 110px;
+  width: 180px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.room-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 12px;
 }
 
 .staff-container {
