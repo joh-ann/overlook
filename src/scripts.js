@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Searching for...', selectedDate);
     const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
     displayAvailableRooms(availableRooms);
+    console.log(currentCustomer)
     }
   });
 

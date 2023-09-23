@@ -62,7 +62,7 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
   const pastBookings = customerBookings.pastBookings || [];
     // Sort by date
     pastBookings.sort((bookingA, bookingB) => {
-      return bookingA.date.localeCompare(bookingB.date);
+      return bookingB.date.localeCompare(bookingA.date);
     });
     
   roomsHTML += `<h2>Upcoming Bookings:</h2>`
