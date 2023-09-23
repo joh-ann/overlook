@@ -1,4 +1,5 @@
 import "./css/styles.css";
+MicroModal.init();
 
 import {
   fetchCustomers,
@@ -15,6 +16,7 @@ import {
   displayCustomerInfo, 
   displayLoginErrorMsg,
   displayCustomerRooms,
+  displayAllRooms,
 } from "./domUpdates.js";
 
 import { 
@@ -22,6 +24,19 @@ import {
   getCustomerID, 
   getCustomerBookings,
 } from "./functions.js";
+
+// PACKAGES
+import flatpickr from "flatpickr";
+import MicroModal from 'micromodal';
+
+import "./images/junior suite-1.png";
+import "./images/junior suite-2.png";
+import "./images/residential suite-1.png";
+import "./images/residential suite-2.png";
+import "./images/single room-1.png";
+import "./images/single room-2.png";
+import "./images/suite-1.png"
+import "./images/suite-2.png"
 
 // USER
 let currentCustomer = {};
@@ -31,17 +46,30 @@ let customersData = null;
 let roomsData = null;
 let bookingsData = null;
 
+
+// QUERY SELECTORS
+const loginForm = document.querySelector("#login-form");
+const bookingContainer = document.querySelector(".booking-container");
+const datePicker = document.querySelector("#datepicker");
+const ourRooms = document.querySelector(".our-rooms");
+const homePage = document.querySelector(".home");
+
+const fp = flatpickr(datePicker, {
+  dateFormat: "Y-m-d",
+  enableTime: false,
+});
+
 Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
-  customersData = customersDataValue;
-  roomsData = roomsDataValue;
-  bookingsData = bookingsDataValue;
+  customersData = customersDataValue.customers;
+  roomsData = roomsDataValue.rooms;
+  bookingsData = bookingsDataValue.bookings;
 
-  // QUERY SELECTORS
-  const loginForm = document.querySelector("#login-form");
-  // EVENT LISTENERS
+  ourRooms.addEventListener('click', function() {
+    displayAllRooms(roomsData)
+  });
+
   loginForm.addEventListener('submit', function(event) {
-    // prevent the form from submitting
     event.preventDefault();
     const usernameInput = document.querySelector("#username-input");
     const passwordInput = document.querySelector("#password-input");
@@ -50,16 +78,21 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
       const customerID = getCustomerID(usernameInput.value);
       fetchCustomerBookings(customerID).then((bookings) => {
         const customerBookings = bookings;
-        console.log(customerBookings)
+        currentCustomer.id = customerID;
+        currentCustomer.bookings = customerBookings;
         displayCustomerInfo(customerID, customerBookings, roomsData)
-        displayCustomerRooms(customerBookings)
+        displayCustomerRooms(customerBookings, roomsData)
       })
-
       .catch((error) => {
         console.error("Error fetching customer bookings:", error);
       });
     } else {
       displayLoginErrorMsg();
     }
-  })
+  });
+
+  homePage.addEventListener('click', function(event) {
+    displayCustomerInfo(currentCustomer.id, currentCustomer.bookings, roomsData);
+    displayCustomerRooms(currentCustomer.bookings, roomsData);
+  });
 })

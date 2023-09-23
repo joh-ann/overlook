@@ -35,10 +35,10 @@ export const displayCustomerInfo = (customerID, customerBookings, roomsData) => 
 
     customerHTML += `
     <div class="customer-info" id="${customerID}">
-    <p>Welcome, ${customerName}</p>
-    <p>Past Bookings: ${pastBookings.length}</p>
-    <p>Upcoming Bookings: ${upcomingBookings.length}</p>
-    <p>Total Spent: $${totalSpent}</p>
+      <p>Welcome, ${customerName}</p>
+      <p>Past Bookings: ${pastBookings.length}</p>
+      <p>Upcoming Bookings: ${upcomingBookings.length}</p>
+      <p>Total Spent: $${totalSpent}</p>
     </div>
     `;
 
@@ -64,8 +64,18 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
   <h2>Upcoming Bookings:</h2>
   <div class="upcoming-bookings">`
   upcomingBookings.forEach((upcomingBooking) => {
+    const matchedRoom = roomsData.find((room) => room.number === upcomingBooking.roomNumber)
     roomsHTML += `
-    <div class="room-card">${upcomingBooking.roomNumber}</div>
+    <div class="room-card">
+      <img src="images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
+      <div class="room-card-info">
+        <p>Room #: ${matchedRoom.number}</p>
+        <p>Type: ${matchedRoom.roomType}</p>
+        <p>Bed: ${matchedRoom.bedSize}</p>
+        <p># of Beds: ${matchedRoom.numBeds}</p>
+        <p>Cost: $${matchedRoom.costPerNight}/night</p>
+      </div>
+    </div>
     `
   })
   roomsHTML += `</div>`
@@ -73,11 +83,43 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
   <h2>Past Bookings:</h2>
   <div class="past-bookings">`
   pastBookings.forEach((pastBooking) => {
+    const matchedRoom = roomsData.find((room) => room.number === pastBooking.roomNumber)
     roomsHTML += `
-    <div class="room-card">${pastBooking.roomNumber}</div>
+    <div class="room-card">
+      <img src="images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" class="room-icon-img">
+      <div class="room-card-info">
+        <p>Room #: ${matchedRoom.number}</p>
+        <p>Type: ${matchedRoom.roomType}</p>
+        <p>Bed: ${matchedRoom.bedSize}</p>
+        <p># of Beds: ${matchedRoom.numBeds}</p>
+        <p>Cost: $${matchedRoom.costPerNight}/night</p>
+      </div>
+    </div>
     `
   })
   roomsHTML += `</div>`
+  roomsHTML += `</div>`
+  roomsContainer.innerHTML = roomsHTML;
+}
+
+export const displayAllRooms = (roomsData) => {
+  let roomsHTML = ``
+
+  roomsHTML += `<div class="rooms-list">`
+  roomsData.forEach((room) => {
+    roomsHTML += `
+    <div class="room-wrapper">
+      <img src="images/${room.roomType}-${room.numBeds}.png" class="room-img">
+        <div class="room-info">
+          <p>Room #: ${room.number}</p>
+          <p>Type: ${room.roomType}</p>
+          <p>Bed: ${room.bedSize}</p>
+          <p># of Beds: ${room.numBeds}</p>
+          <p>Cost: $${room.costPerNight}/night</p>
+        </div>
+    </div>
+    `
+  })
   roomsHTML += `</div>`
   roomsContainer.innerHTML = roomsHTML;
 }
