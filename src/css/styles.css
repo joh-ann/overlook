@@ -377,6 +377,40 @@ input {
 
 .selected-date-rooms {
   display: flex;
+  flex-direction: column;
   height: 550px;
   width: 750px;
+  overflow-y: auto;
+}
+
+.available-room-card {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 10px 0px 10px;
+}
+
+.available-room-info {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  justify-content: flex-start;
+}
+
+.book-room-btn {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  height: 40px;
+  width: 100px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #00449e;
+  color: #fff;
+}
+
+.book-room-btn:focus, .book-room-btn:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }

@@ -22,6 +22,7 @@ import {
   displayCustomerRooms,
   displayAllRooms,
   displayAboutUs,
+  displayAvailableRooms,
 } from "./domUpdates.js";
 
 import { 
@@ -129,7 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
   findRoomBtn.addEventListener('click', function(event) {
     const selectedDate = input.value;
     console.log('Searching for...', selectedDate);
-    getAvailableRooms(selectedDate, bookingsData, roomsData);
+    const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
+    displayAvailableRooms(availableRooms);
   });
 
   clearDateBtn.addEventListener('click', function() {

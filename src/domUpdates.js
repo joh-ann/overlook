@@ -5,6 +5,7 @@ import { roomsData } from "./scripts";
 const roomsContainer = document.querySelector('.rooms-container');
 const customerContainer = document.querySelector('.customer-container');
 const loginErrorMsg = document.querySelector('.login-error-msg');
+const availableRoomsContainer = document.querySelector('.selected-date-rooms');
 
 export const displayRooms = (rooms) => {
   let roomsHTML = ``;
@@ -130,6 +131,26 @@ export const displayAboutUs = () => {
     <p>Each morning, you can witness the sun's gentle touch as it bathes the landscape beyond your room's <em>floor-to-ceiling windows</em> in its golden glow. Whether it's cherry blossoms in spring, lush greenery in summer, vivid red foliage in autumn, or snow-dusted mountain peaks in winter, you'll be enchanted by the ever-changing beauty of Kyoto. In this captivating city, secrets are cherished, and we are here to guide you in uncovering its hidden gems.</p>    
   </div>`;
 
-  roomsContainer.innerHTML = aboutUsHTML
+  roomsContainer.innerHTML = aboutUsHTML;
 }
 
+export const displayAvailableRooms = (availableRooms) => {
+  let availableRoomsHTML = ``
+
+  availableRooms.forEach((room) => {
+    availableRoomsHTML += `
+    <div class="available-room-card">
+      <img src="images/${room.roomType}-${room.numBeds}.png" class="room-img">
+      <div class="available-room-info">
+        <p>Room #: ${room.number}</p>
+        <p>Type: ${room.roomType}</p>
+        <p>Bed: ${room.bedSize}</p>
+        <p># of Beds: ${room.numBeds}</p>
+        <p>Cost: $${room.costPerNight}/night</p>
+        <button class="book-room-btn">Book Room</button>
+      </div>
+    </div>`
+  })
+
+  availableRoomsContainer.innerHTML = availableRoomsHTML;
+}
