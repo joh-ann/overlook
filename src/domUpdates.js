@@ -89,7 +89,7 @@ export const displayAllRooms = (roomsData) => {
   roomsData.forEach((room) => {
     roomsHTML += `
     <div class="room-wrapper">
-      <img src="${room.Type}-${room.numBeds}.png" class="room-img">
+      <img src="src/images/${room.roomType}-${room.numBeds}.png" class="room-img">
         <div class="room-info">
           <p>Room Number: ${room.number}</p>
           <p>Room Type: ${room.roomType}</p>
@@ -99,6 +99,7 @@ export const displayAllRooms = (roomsData) => {
         </div>
     </div>
     `
+    console.log(`${room.roomType}-${room.numBeds}`)
   })
   roomsHTML += `</div>`
   roomsContainer.innerHTML = roomsHTML;

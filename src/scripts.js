@@ -53,10 +53,6 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
   bookingsData = bookingsDataValue.bookings;
 
   ourRooms.addEventListener('click', function() {
-    console.log('u clicked me?')
-    console.log(roomsData)
-    console.log(customersData)
-    console.log(bookingsData)
     displayAllRooms(roomsData)
   });
 
@@ -80,8 +76,5 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
     } else {
       displayLoginErrorMsg();
     }
-  })
-  .catch((error) => {
-    console.error("Error fetching data:", error);
   })
 })
