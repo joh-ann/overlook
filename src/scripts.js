@@ -180,7 +180,11 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Error making booking or fetching customer bookings:", error);
           })
       } else {
-        event.target.innerText = `You are not logged in!`
+        event.target.innerText = `You are not logged in!`;
+
+        setTimeout(function() {
+          event.target.innerText = "Book Room";
+        }, 2000);
       }
     }
   });
