@@ -69,13 +69,13 @@ const loginForm = document.querySelector("#login-form");
 const ourRooms = document.querySelector(".our-rooms");
 const homePage = document.querySelector(".home");
 const aboutUsPage = document.querySelector(".about-us");
+const modalContainer = document.querySelector("#modal-1");
 
 // BUTTONS
 const clearDateBtn = document.querySelector(".clear-date-btn");
 const reservationBtn = document.querySelector(".reservation-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
 const findRoomBtn = document.querySelector(".find-room-btn");
-const bookRoomBtn = document.querySelector(".book-room-btn");
 
 Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
@@ -163,8 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   // BOOK ROOM BUTTON
-  document.addEventListener('click', function(event) {
-    console.log('click')
+  modalContainer.addEventListener('click', function(event) {
+    console.log('modal container')
     if (event.target.classList.contains("book-room-btn")) {
       console.log('book room button')
       if (currentCustomer.active) {
