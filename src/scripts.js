@@ -179,7 +179,15 @@ document.addEventListener('DOMContentLoaded', function() {
               .then(() => {
                 const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
                 displayAvailableRooms(availableRooms);
+                console.log(currentCustomer)
               })
+                .then(() => {
+                    fetchCustomerBookings(currentCustomer.id).then((bookings) => {
+                      const updatedCustomerBookings = bookings;
+                      displayCustomerInfo(currentCustomer.id, updatedCustomerBookings, roomsData)
+                      displayCustomerRooms(updatedCustomerBookings, roomsData)
+                  })
+                })
             })
           .catch((error) => {
             console.error("Error making booking:", error);
