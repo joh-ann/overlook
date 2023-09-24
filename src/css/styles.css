@@ -34,6 +34,24 @@ main {
   height: 65vh;
 }
 
+/* NAV */
+.home,
+.about-us,
+.our-rooms,
+.contact,
+.staff {
+  cursor: pointer;
+  transition: font-weight 0.3 ease;
+}
+
+.home:hover,
+.about-us:hover,
+.our-rooms:hover,
+.contact:hover,
+.staff:hover {
+  font-weight: 700;
+}
+
 .customer-container {
   display: flex;
   justify-content: center;
@@ -133,11 +151,6 @@ h2 {
 
 .hidden {
   display: none;
-}
-
-.logo {
-  font-style: italic;
-  font-weight: 700;
 }
 
 .rooms-list {
@@ -274,8 +287,6 @@ h2 {
   background-color: #00449e;
   color: #fff;
 }
-
-
 
 /**************************\
   Demo Animation Style
