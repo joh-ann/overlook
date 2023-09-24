@@ -91,6 +91,7 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
       const customerID = getCustomerID(usernameInput.value);
       fetchCustomerBookings(customerID).then((bookings) => {
         const customerBookings = bookings;
+        console.log(customerBookings)
         currentCustomer.id = customerID;
         currentCustomer.bookings = customerBookings;
         displayCustomerInfo(customerID, customerBookings, roomsData)
@@ -161,6 +162,17 @@ document.addEventListener('DOMContentLoaded', function() {
       let selectedDate = input.value;
       let roomNumber = parseInt(event.target.id);
       addBooking(currentCustomer.id, selectedDate, roomNumber)
+        .then(() => {
+          return fetchCustomerBookings(currentCustomer.id);
+        })
+        .then((bookings) => {
+          const updatedCustomerBookings = bookings;
+            displayCustomerInfo(currentCustomer.id, updatedCustomerBookings, roomsData);
+            displayCustomerRooms(updatedCustomerBookings, roomsData);
+        })
+        .catch((error) => {
+          console.error("Error making booking or fetching customer bookings:", error);
+        })
     }
   });
 });
