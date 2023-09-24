@@ -164,20 +164,24 @@ document.addEventListener('DOMContentLoaded', function() {
   // BOOK ROOM BUTTON
   document.addEventListener('click', function(event) {
     if (event.target.classList.contains("book-room-btn")) {
-      let selectedDate = input.value;
-      let roomNumber = parseInt(event.target.id);
-      addBooking(currentCustomer.id, selectedDate, roomNumber)
-        .then(() => {
-          return fetchCustomerBookings(currentCustomer.id);
-        })
-        .then((bookings) => {
-          const updatedCustomerBookings = bookings;
-            displayCustomerInfo(currentCustomer.id, updatedCustomerBookings, roomsData);
-            displayCustomerRooms(updatedCustomerBookings, roomsData);
-        })
-        .catch((error) => {
-          console.error("Error making booking or fetching customer bookings:", error);
-        })
+      if (currentCustomer.active) {
+        let selectedDate = input.value;
+        let roomNumber = parseInt(event.target.id);
+        addBooking(currentCustomer.id, selectedDate, roomNumber)
+          .then(() => {
+            return fetchCustomerBookings(currentCustomer.id);
+          })
+          .then((bookings) => {
+            const updatedCustomerBookings = bookings;
+              displayCustomerInfo(currentCustomer.id, updatedCustomerBookings, roomsData);
+              displayCustomerRooms(updatedCustomerBookings, roomsData);
+          })
+          .catch((error) => {
+            console.error("Error making booking or fetching customer bookings:", error);
+          })
+      } else {
+        event.target.innerText = `You are not logged in!`
+      }
     }
   });
 });
