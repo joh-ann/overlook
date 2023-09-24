@@ -23,6 +23,8 @@ import {
   displayAllRooms,
   displayAboutUs,
   displayAvailableRooms,
+  displayNoDateSelected,
+  clearRoomSearch,
 } from "./domUpdates.js";
 
 import { 
@@ -89,6 +91,7 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
       const customerID = getCustomerID(usernameInput.value);
       fetchCustomerBookings(customerID).then((bookings) => {
         const customerBookings = bookings;
+        console.log(customerBookings)
         currentCustomer.id = customerID;
         currentCustomer.bookings = customerBookings;
         displayCustomerInfo(customerID, customerBookings, roomsData)
@@ -112,30 +115,65 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
 document.addEventListener('DOMContentLoaded', function() {
   const input = document.getElementById('date-input');
 
-  input.addEventListener('change', function(event) {
-    const selectedDate = event.target.value;
-    console.log('Selected date:', selectedDate);
-  });
+  flatpickr(input, {
+    dateFormat: "Y/m/d"
+  })
 
-  reservationBtn.addEventListener('click', function() {
+  reservationBtn.addEventListener('click', function(event) {
     flatpickr(input, {
       dateFormat: "Y/m/d"
-    })
-  });
+    });
+  })
+
+  input.addEventListener('change', function(event) {
+    const selectedDate = input.value;
+    console.log('Selected date:', selectedDate);
+  })
 
   openCalBtn.addEventListener('click', function() {
-    flatpickr(input).open();
-  });
+    flatpickr(input, {
+      dateFormat: "Y/m/d"
+    }).open();
+  })
 
   findRoomBtn.addEventListener('click', function(event) {
     const selectedDate = input.value;
+
+    if (selectedDate.length === 0) {
+      displayNoDateSelected();
+    } else {
     console.log('Searching for...', selectedDate);
     const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
     displayAvailableRooms(availableRooms);
-  });
+    console.log(currentCustomer)
+    }
+  })
 
   clearDateBtn.addEventListener('click', function() {
-    flatpickr(input).clear();
+    flatpickr(input, {
+      dateFormat: "Y/m/d"
+    }).clear();
+    clearRoomSearch();
+  })
+
+  // BOOK ROOM BUTTON
+  document.addEventListener('click', function(event) {
+    if (event.target.classList.contains("book-room-btn")) {
+      let selectedDate = input.value;
+      let roomNumber = parseInt(event.target.id);
+      addBooking(currentCustomer.id, selectedDate, roomNumber)
+        .then(() => {
+          return fetchCustomerBookings(currentCustomer.id);
+        })
+        .then((bookings) => {
+          const updatedCustomerBookings = bookings;
+            displayCustomerInfo(currentCustomer.id, updatedCustomerBookings, roomsData);
+            displayCustomerRooms(updatedCustomerBookings, roomsData);
+        })
+        .catch((error) => {
+          console.error("Error making booking or fetching customer bookings:", error);
+        })
+    }
   });
 });
 

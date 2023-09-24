@@ -107,6 +107,7 @@ h2 {
   width: 340px;
   margin: 10px;
   padding: 20px;
+  position: relative;
 }
 
 .room-icon-img {
@@ -188,6 +189,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .modal__container {
@@ -413,4 +415,33 @@ input {
 .book-room-btn:focus, .book-room-btn:hover {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
+}
+
+.no-available-rooms {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  width: 400px;
+  color: red;
+}
+
+.no-selected-date {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  width: 400px;
+  color: red;
+}
+
+/* DATE OVERLAY */
+.date-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  font-size: small;
+  font-weight: bold;
 }

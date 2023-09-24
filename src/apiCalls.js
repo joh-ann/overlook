@@ -36,13 +36,13 @@ export const fetchBookings = fetch("http://localhost:3001/api/v1/bookings")
     throw error;
   });
 
-export const addBooking = (user, date, room) => {
+export const addBooking = (userID, date, roomNumber) => {
   return fetch("http://localhost:3001/api/v1/bookings", {
     method: 'POST',
     body: JSON.stringify({
-      userID: user.id,
+      userID: userID,
       date: date,
-      roomNumber: room.number
+      roomNumber: roomNumber
     }),
     headers: {
         'Content-Type': 'application/json'
