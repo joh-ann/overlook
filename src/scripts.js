@@ -52,7 +52,11 @@ import "./images/overlook-room.png";
 import "./images/overlook-spa.png";
 
 // USER
-let currentCustomer = {};
+let currentCustomer = {
+  id: null,
+  bookings: null,
+  active: false,
+};
 
 // DATA
 let customersData = null;
@@ -94,6 +98,7 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
         console.log(customerBookings)
         currentCustomer.id = customerID;
         currentCustomer.bookings = customerBookings;
+        currentCustomer.active = true;
         displayCustomerInfo(customerID, customerBookings, roomsData)
         displayCustomerRooms(customerBookings, roomsData)
       })
