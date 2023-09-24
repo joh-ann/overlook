@@ -52,7 +52,11 @@ import "./images/overlook-room.png";
 import "./images/overlook-spa.png";
 
 // USER
-let currentCustomer = {};
+let currentCustomer = {
+  id: null,
+  bookings: null,
+  active: false,
+};
 
 // DATA
 let customersData = null;
@@ -65,6 +69,7 @@ const loginForm = document.querySelector("#login-form");
 const ourRooms = document.querySelector(".our-rooms");
 const homePage = document.querySelector(".home");
 const aboutUsPage = document.querySelector(".about-us");
+const modalContainer = document.querySelector("#modal-1");
 
 // BUTTONS
 const clearDateBtn = document.querySelector(".clear-date-btn");
@@ -72,7 +77,7 @@ const reservationBtn = document.querySelector(".reservation-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
 const findRoomBtn = document.querySelector(".find-room-btn");
 
-Promise.all([fetchCustomers, fetchRooms, fetchBookings])
+Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
   customersData = customersDataValue.customers;
   roomsData = roomsDataValue.rooms;
@@ -94,6 +99,7 @@ Promise.all([fetchCustomers, fetchRooms, fetchBookings])
         console.log(customerBookings)
         currentCustomer.id = customerID;
         currentCustomer.bookings = customerBookings;
+        currentCustomer.active = true;
         displayCustomerInfo(customerID, customerBookings, roomsData)
         displayCustomerRooms(customerBookings, roomsData)
       })
@@ -157,22 +163,45 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   // BOOK ROOM BUTTON
-  document.addEventListener('click', function(event) {
+  modalContainer.addEventListener('click', function(event) {
+    console.log('modal container')
     if (event.target.classList.contains("book-room-btn")) {
-      let selectedDate = input.value;
-      let roomNumber = parseInt(event.target.id);
-      addBooking(currentCustomer.id, selectedDate, roomNumber)
+      console.log('book room button')
+      if (currentCustomer.active) {
+        let selectedDate = input.value;
+        let roomNumber = parseInt(event.target.id);
+        addBooking(currentCustomer.id, selectedDate, roomNumber)
         .then(() => {
-          return fetchCustomerBookings(currentCustomer.id);
-        })
-        .then((bookings) => {
-          const updatedCustomerBookings = bookings;
-            displayCustomerInfo(currentCustomer.id, updatedCustomerBookings, roomsData);
-            displayCustomerRooms(updatedCustomerBookings, roomsData);
-        })
+          fetchBookings()
+            .then((allBookings) => {
+              bookingsData = allBookings.bookings;
+            })
+              .then(() => {
+                const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
+                displayAvailableRooms(availableRooms);
+                console.log(currentCustomer)
+              })
+                .then(() => {
+                    fetchCustomerBookings(currentCustomer.id).then((bookings) => {
+                      const updatedCustomerBookings = bookings;
+                      displayCustomerInfo(currentCustomer.id, updatedCustomerBookings, roomsData)
+                      displayCustomerRooms(updatedCustomerBookings, roomsData)
+                  })
+                })
+            })
+          .catch((error) => {
+            console.error("Error making booking:", error);
+          })
         .catch((error) => {
-          console.error("Error making booking or fetching customer bookings:", error);
+          console.error("Error making booking:", error);
         })
+      } else {
+        event.target.innerText = `You are not logged in!`;
+
+        setTimeout(function() {
+          event.target.innerText = "Book Room";
+        }, 2000);
+      }
     }
   });
 });
