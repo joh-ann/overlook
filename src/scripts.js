@@ -76,7 +76,7 @@ const reservationBtn = document.querySelector(".reservation-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
 const findRoomBtn = document.querySelector(".find-room-btn");
 
-Promise.all([fetchCustomers, fetchRooms, fetchBookings])
+Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
   customersData = customersDataValue.customers;
   roomsData = roomsDataValue.rooms;
@@ -169,16 +169,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let roomNumber = parseInt(event.target.id);
         addBooking(currentCustomer.id, selectedDate, roomNumber)
           .then(() => {
-            return fetchCustomerBookings(currentCustomer.id);
+            return updateBookingsData();
           })
-          .then((bookings) => {
-            const updatedCustomerBookings = bookings;
-              displayCustomerInfo(currentCustomer.id, updatedCustomerBookings, roomsData);
-              displayCustomerRooms(updatedCustomerBookings, roomsData);
+          .then(() => {
+            const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
+            displayAvailableRooms(availableRooms);
           })
           .catch((error) => {
-            console.error("Error making booking or fetching customer bookings:", error);
-          })
+            console.error("Error making booking:", error);
+          });
       } else {
         event.target.innerText = `You are not logged in!`;
 
@@ -193,3 +192,14 @@ document.addEventListener('DOMContentLoaded', function() {
 aboutUsPage.addEventListener('click', function(event) {
   displayAboutUs();
 })
+
+const updateBookingsData = () => {
+  fetchBookings()
+    .then((allBookings) => {
+      bookingsData = allBookings.bookings;
+      console.log("Updated bookingsData");
+    })
+    .catch((error) => {
+      console.error("Error updating bookingsData:", error);
+    });
+}

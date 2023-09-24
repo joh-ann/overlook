@@ -1,6 +1,7 @@
 import { getCustomerBookings } from "./functions";
 
-export const fetchCustomers = fetch("http://localhost:3001/api/v1/customers")
+export const fetchCustomers = () => {
+  return fetch("http://localhost:3001/api/v1/customers")
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -11,8 +12,10 @@ export const fetchCustomers = fetch("http://localhost:3001/api/v1/customers")
     console.error("Error fetching customers:", error);
     throw error;
   });
+}
 
-export const fetchRooms = fetch("http://localhost:3001/api/v1/rooms")
+export const fetchRooms = () => {
+  return fetch("http://localhost:3001/api/v1/rooms")
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -23,18 +26,21 @@ export const fetchRooms = fetch("http://localhost:3001/api/v1/rooms")
     console.error("Error fetching rooms:", error);
     throw error;
   });
+}
 
-export const fetchBookings = fetch("http://localhost:3001/api/v1/bookings")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`Fetch failed with status code: ${response.status}`);
-    }
-    return response.json();
-  })
-  .catch((error) => {
-    console.error("Error fetching bookings:", error);
-    throw error;
-  });
+export const fetchBookings = () => {
+  return fetch("http://localhost:3001/api/v1/bookings")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Fetch failed with status code: ${response.status}`);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching bookings:", error);
+      throw error;
+    });
+  }
 
 export const addBooking = (userID, date, roomNumber) => {
   return fetch("http://localhost:3001/api/v1/bookings", {

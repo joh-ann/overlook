@@ -147,8 +147,8 @@ export const displayAboutUs = () => {
 }
 
 export const displayAvailableRooms = (availableRooms) => {
+  let availableRoomsHTML = ``
   if (availableRooms.length === 0) {
-    let availableRoomsHTML = ``
       availableRoomsHTML += `
       <div class="no-available-rooms">
         <p>Sorry, no rooms are available for the selected date. Please choose a different date or contact us for assistance.</p>
@@ -156,8 +156,6 @@ export const displayAvailableRooms = (availableRooms) => {
       `
     availableRoomsContainer.innerHTML = availableRoomsHTML;
   } else {
-    let availableRoomsHTML = ``
-
     availableRooms.forEach((room) => {
       availableRoomsHTML += `
       <div class="available-room-card">
