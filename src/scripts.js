@@ -75,6 +75,7 @@ const clearDateBtn = document.querySelector(".clear-date-btn");
 const reservationBtn = document.querySelector(".reservation-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
 const findRoomBtn = document.querySelector(".find-room-btn");
+const bookRoomBtn = document.querySelector(".book-room-btn");
 
 Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
@@ -163,21 +164,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // BOOK ROOM BUTTON
   document.addEventListener('click', function(event) {
+    console.log('click')
     if (event.target.classList.contains("book-room-btn")) {
+      console.log('book room button')
       if (currentCustomer.active) {
         let selectedDate = input.value;
         let roomNumber = parseInt(event.target.id);
         addBooking(currentCustomer.id, selectedDate, roomNumber)
-          .then(() => {
-            return updateBookingsData();
-          })
-          .then(() => {
-            const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
-            displayAvailableRooms(availableRooms);
-          })
+        .then(() => {
+          fetchBookings()
+            .then((allBookings) => {
+              bookingsData = allBookings.bookings;
+            })
+              .then(() => {
+                const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
+                displayAvailableRooms(availableRooms);
+              })
+            })
           .catch((error) => {
             console.error("Error making booking:", error);
-          });
+          })
+        .catch((error) => {
+          console.error("Error making booking:", error);
+        })
       } else {
         event.target.innerText = `You are not logged in!`;
 
@@ -192,14 +201,3 @@ document.addEventListener('DOMContentLoaded', function() {
 aboutUsPage.addEventListener('click', function(event) {
   displayAboutUs();
 })
-
-const updateBookingsData = () => {
-  fetchBookings()
-    .then((allBookings) => {
-      bookingsData = allBookings.bookings;
-      console.log("Updated bookingsData");
-    })
-    .catch((error) => {
-      console.error("Error updating bookingsData:", error);
-    });
-}
