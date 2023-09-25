@@ -33,8 +33,8 @@ export const displayCustomerInfo = (customerID, customerBookings, roomsData) => 
     customerHTML += `
     <div tabindex="0" class="customer-info" id="${customerID}">
       <p tabindex="0" class="welcome-msg">Welcome back, <strong>${customerName}</strong>!</p>
-      <p tabindex="0" >Upcoming Bookings: ${upcomingBookings.length}</p>
-      <p tabindex="0" >Past Bookings: ${pastBookings.length}</p>
+      <p tabindex="0">Upcoming Bookings: ${upcomingBookings.length}</p>
+      <p tabindex="0">Past Bookings: ${pastBookings.length}</p>
       <p tabindex="0">Total Spent: $${totalSpent.toFixed(2)}</p>
     </div>
     `;
@@ -96,11 +96,11 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
     <div tabindex="0" class="date-overlay"><p>${pastBooking.date}</p></div>
       <img src="images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" tabindex="0" class="room-icon-img" alt="${matchedRoom.roomType}-${matchedRoom.numBeds}">
       <div class="room-card-info">
-        <p> tabindex="0" Room #: ${matchedRoom.number}</p>
-        <p> tabindex="0" Type: ${matchedRoom.roomType}</p>
-        <p> tabindex="0" Bed: ${matchedRoom.bedSize}</p>
-        <p> tabindex="0" # of Beds: ${matchedRoom.numBeds}</p>
-        <p> tabindex="0" Cost: $${matchedRoom.costPerNight}/night</p>
+        <p tabindex="0">Room #: ${matchedRoom.number}</p>
+        <p tabindex="0">Type: ${matchedRoom.roomType}</p>
+        <p tabindex="0">Bed: ${matchedRoom.bedSize}</p>
+        <p tabindex="0"># of Beds: ${matchedRoom.numBeds}</p>
+        <p tabindex="0">Cost: $${matchedRoom.costPerNight}/night</p>
       </div>
     </div>
     `
