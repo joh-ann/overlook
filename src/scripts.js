@@ -43,13 +43,15 @@ import "./images/single room-1.png";
 import "./images/single room-2.png";
 import "./images/suite-1.png";
 import "./images/suite-2.png";
-import "./images/overlook-dining.png";
-import "./images/overlook-downtown.png";
-import "./images/overlook-lobby.png";
 import "./images/overlook-logo.png";
 import "./images/overlook-pond.png";
-import "./images/overlook-room.png";
-import "./images/overlook-spa.png";
+import "./images/overlook-main.png";
+
+// AMENITIES ICONS
+import "./images/overlook-nosmoking-icon.png";
+import "./images/overlook-bath-icon.png";
+import "./images/overlook-dog-icon.png";
+import "./images/overlook-bed-icon.png";
 
 // USER
 let currentCustomer = {
@@ -73,7 +75,7 @@ const modalContainer = document.querySelector("#modal-1");
 
 // BUTTONS
 const clearDateBtn = document.querySelector(".clear-date-btn");
-const reservationBtn = document.querySelector(".reservation-btn");
+const bookBtn = document.querySelector(".book-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
 const findRoomBtn = document.querySelector(".find-room-btn");
 
@@ -125,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dateFormat: "Y/m/d"
   })
 
-  reservationBtn.addEventListener('click', function(event) {
+  bookBtn.addEventListener('click', function(event) {
     flatpickr(input, {
       dateFormat: "Y/m/d"
     });
@@ -200,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setTimeout(function() {
           event.target.innerText = "Book Room";
-        }, 2000);
+        }, 4000);
       }
     }
   });

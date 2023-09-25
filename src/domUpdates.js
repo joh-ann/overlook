@@ -32,10 +32,10 @@ export const displayCustomerInfo = (customerID, customerBookings, roomsData) => 
 
     customerHTML += `
     <div class="customer-info" id="${customerID}">
-      <p>Welcome, ${customerName}</p>
-      <p>Past Bookings: ${pastBookings.length}</p>
+      <p class="welcome-msg">Welcome back, <strong>${customerName}</strong>!</p>
       <p>Upcoming Bookings: ${upcomingBookings.length}</p>
-      <p>Total Spent: $${totalSpent}</p>
+      <p>Past Bookings: ${pastBookings.length}</p>
+      <p>Total Spent: $${totalSpent.toFixed(2)}</p>
     </div>
     `;
 
@@ -65,7 +65,7 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
       return bookingB.date.localeCompare(bookingA.date);
     });
     
-  roomsHTML += `<h2>Upcoming Bookings:</h2>`
+  roomsHTML += `<h1>Upcoming Bookings</h1>`
   roomsHTML += `<div class="upcoming-bookings">`
 
   upcomingBookings.forEach((upcomingBooking) => {
@@ -86,7 +86,7 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
   })
   roomsHTML += `</div>`
 
-  roomsHTML += `<h2>Past Bookings:</h2>`
+  roomsHTML += `<h1>Past Bookings</h1>`
   roomsHTML += `<div class="past-bookings">`
 
   pastBookings.forEach((pastBooking) => {
@@ -115,11 +115,18 @@ export const displayAllRooms = (roomsData) => {
   let roomsHTML = ``
 
   roomsHTML += `<div class="rooms-list">`
+  roomsHTML += `<h1>Our Rooms</h1>`
   roomsData.forEach((room) => {
     roomsHTML += `
     <div class="room-wrapper">
       <img src="images/${room.roomType}-${room.numBeds}.png" class="room-img">
         <div class="room-info">
+          <div class="amenities-icons">
+            <img src="/images/overlook-bed-icon.png" class="amenities-icon-img">
+            <img src="/images/overlook-bath-icon.png" class="amenities-icon-img">
+            <img src="/images/overlook-nosmoking-icon.png" class="amenities-icon-img">
+            <img src="/images/overlook-dog-icon.png" class="amenities-icon-img">
+          </div>
           <p>Room #: ${room.number}</p>
           <p>Type: ${room.roomType}</p>
           <p>Bed: ${room.bedSize}</p>
@@ -137,11 +144,16 @@ export const displayAboutUs = () => {
   let aboutUsHTML = ``
 
   aboutUsHTML += `
-  <div class="about-us-info">
-    <p><strong><em>"Overlook,"</em></strong> our contemporary hotel nestled in Kyoto's temple district, invites you to experience a modern garden sanctuary steeped in history. As you wander along the tall, slender bamboo stems that guide your path, you'll encounter our heart and soul: the 800-year-old <em>Shakusui-en</em>, a pond garden that gracefully connects our hotel with tradition, artistry, and the wonders of nature. Ranked as #100 in the <em>"Travel + Leisure"</em> World's Best Awards for 2023, we are proud to provide you with an intimate escape that blends the old and the new.</p>
+  <div class="about-us-wrapper">
+    <div class="about-us-info-wrapper">
+    <h1>About Us</h1>
+      <p class="about-us-info"><strong><em>"Overlook,"</em></strong> our contemporary hotel nestled in Kyoto's temple district, invites you to experience a modern garden sanctuary steeped in history. As you wander along the tall, slender bamboo stems that guide your path, you'll encounter our heart and soul: the 800-year-old <em>Shakusui-en</em>, a pond garden that gracefully connects our hotel with tradition, artistry, and the wonders of nature. Ranked as #100 in the <em>"Travel + Leisure"</em> World's Best Awards for 2023, we are proud to provide you with an intimate escape that blends the old and the new.</p>
 
-    <p>Each morning, you can witness the sun's gentle touch as it bathes the landscape beyond your room's <em>floor-to-ceiling windows</em> in its golden glow. Whether it's cherry blossoms in spring, lush greenery in summer, vivid red foliage in autumn, or snow-dusted mountain peaks in winter, you'll be enchanted by the ever-changing beauty of Kyoto. In this captivating city, secrets are cherished, and we are here to guide you in uncovering its hidden gems.</p>    
-  </div>`;
+      <p class="about-us-info">Each morning, you can witness the sun's gentle touch as it bathes the landscape beyond your room's <em>floor-to-ceiling windows</em> in its golden glow. Whether it's cherry blossoms in spring, lush greenery in summer, vivid red foliage in autumn, or snow-dusted mountain peaks in winter, you'll be enchanted by the ever-changing beauty of Kyoto. In this captivating city, secrets are cherished, and we are here to guide you in uncovering its hidden gems.</p>
+      </div>`;
+
+  aboutUsHTML += `<img src="/images/overlook-pond.png" class="overlook-pond-img">`
+  aboutUsHTML += `</div>`
 
   roomsContainer.innerHTML = aboutUsHTML;
 }

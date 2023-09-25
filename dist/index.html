@@ -17,9 +17,9 @@
   <div class="about-us">ABOUT US</div>
   <div class="our-rooms">OUR ROOMS</div>
   <img class="logo" src="./images/overlook-logo.png">
-  <button class="reservation-btn" data-micromodal-trigger="modal-1">RESERVATION</button>
-  <div class="contact">contact</div>
-  <div class="staff">staff</div>
+  <button class="book-btn" data-micromodal-trigger="modal-1">BOOK</button>
+  <div class="contact">CONTACT</div>
+  <div class="staff">STAFF</div>
 </header>
 <body>
   <!-- MODAL -->
@@ -28,7 +28,7 @@
       <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
         <header class="modal__header">
           <h2 class="modal__title" id="modal-1-title">
-            Reservation
+            Book A Room
           </h2>
           <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
         </header>
@@ -51,14 +51,10 @@
 
           </div>
         </main>
-        <footer class="modal__footer">
-          <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
-        </footer>
       </div>
     </div>
   </div>
   <!-- MODAL END -->
-  <nav>
     <div class="customer-container">
       <form id="login-form">
         <label for="username-input" class="label">Username:</label>
@@ -69,10 +65,11 @@
         <div class="login-error-msg hidden">Invalid login information</div>
       </form>
     </div>
-  </nav>
   <main>
     <section class="rooms-container">
-      rooms container
+      <div class="home-img-wrapper">
+        <img src="images/overlook-main.png" class="home-img">
+      </div>
     </section>
     <section class="staff-container hidden">
       staff container
