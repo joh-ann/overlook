@@ -88,6 +88,7 @@ main {
 #password-input {
   height: 25px;
   width: 180px;
+  font-size: 1.1em;
 }
 
 .label {
@@ -106,7 +107,7 @@ main {
 
 .login-error-msg {
   color: red;
-  width: 200px;
+  max-width: 140px;
 }
 
 #login-form {
@@ -527,11 +528,6 @@ input {
   font-size: 18px;
   padding-left: 4px;
   margin-bottom: 8px;
-}
-
-#username-input,
-#password-input {
-  font-size: 1.1em;
 }
 
 .selected-date-rooms {
