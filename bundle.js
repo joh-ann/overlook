@@ -3408,7 +3408,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const fetchCustomers = () => {
-  return fetch("http://localhost:3001/api/v1/customers")
+  return fetch("https://overlook-api-two.vercel.app/api/v1/customers")
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -3422,7 +3422,7 @@ const fetchCustomers = () => {
 }
 
 const fetchRooms = () => {
-  return fetch("http://localhost:3001/api/v1/rooms")
+  return fetch("https://overlook-api-two.vercel.app/api/v1/rooms")
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -3436,7 +3436,7 @@ const fetchRooms = () => {
 }
 
 const fetchBookings = () => {
-  return fetch("http://localhost:3001/api/v1/bookings")
+  return fetch("https://overlook-api-two.vercel.app/api/v1/bookings")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -3450,7 +3450,7 @@ const fetchBookings = () => {
   }
 
 const addBooking = (userID, date, roomNumber) => {
-  return fetch("http://localhost:3001/api/v1/bookings", {
+  return fetch("https://overlook-api-two.vercel.app/api/v1/bookings", {
     method: 'POST',
     body: JSON.stringify({
       userID: userID,
@@ -3475,7 +3475,7 @@ const addBooking = (userID, date, roomNumber) => {
 }
 
 const deleteBooking = (bookingID) => {
-  return fetch(`http://localhost:3001/api/v1/bookings/${bookingID}`, {
+  return fetch(`https://overlook-api-two.vercel.app/api/v1/bookings/${bookingID}`, {
     method: 'DELETE',
     headers: {
        'Content-Type': 'application/json'
@@ -3495,7 +3495,7 @@ const deleteBooking = (bookingID) => {
 }
 
 const getSingleCustomer = (customerID) => {
-  return fetch(`http://localhost:3001/api/v1/customers/${customerID}`)
+  return fetch(`hhttps://overlook-api-two.vercel.app/api/v1/customers/${customerID}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -3512,7 +3512,7 @@ const getSingleCustomer = (customerID) => {
   }
 
 const fetchCustomerBookings = (customerID) => {
-  return fetch(`http://localhost:3001/api/v1/bookings`)
+  return fetch(`https://overlook-api-two.vercel.app/api/v1/bookings`)
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -3613,7 +3613,7 @@ const displayCustomerRooms = (customerBookings, roomsData) => {
     roomsHTML += `
     <div class="room-card">
       <div tabindex="0" class="date-overlay"><p>${upcomingBooking.date}</p></div>
-      <img src="images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" tabindex="0" class="room-icon-img" alt="${matchedRoom.roomType}-${matchedRoom.numBeds}">
+      <img src="https://joh-ann.github.io/overlook/images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" tabindex="0" class="room-icon-img" alt="${matchedRoom.roomType}-${matchedRoom.numBeds}">
       <div tabindex="0" class="room-card-info">
         <p tabindex="0">Room #: ${matchedRoom.number}</p>
         <p tabindex="0">Type: ${matchedRoom.roomType}</p>
@@ -3634,7 +3634,7 @@ const displayCustomerRooms = (customerBookings, roomsData) => {
     roomsHTML += `
     <div class="room-card">
     <div tabindex="0" class="date-overlay"><p>${pastBooking.date}</p></div>
-      <img src="images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" tabindex="0" class="room-icon-img" alt="${matchedRoom.roomType}-${matchedRoom.numBeds}">
+      <img src="https://joh-ann.github.io/overlook/images/${matchedRoom.roomType}-${matchedRoom.numBeds}.png" tabindex="0" class="room-icon-img" alt="${matchedRoom.roomType}-${matchedRoom.numBeds}">
       <div class="room-card-info">
         <p tabindex="0">Room #: ${matchedRoom.number}</p>
         <p tabindex="0">Type: ${matchedRoom.roomType}</p>
@@ -3659,13 +3659,13 @@ const displayAllRooms = (roomsData) => {
   roomsData.forEach((room) => {
     roomsHTML += `
     <div class="room-wrapper">
-      <img src="images/${room.roomType}-${room.numBeds}.png" tabindex="0" class="room-img" alt="${room.roomType}-${room.numBeds}">
+      <img src="https://joh-ann.github.io/overlook/images/${room.roomType}-${room.numBeds}.png" tabindex="0" class="room-img" alt="${room.roomType}-${room.numBeds}">
         <div class="room-info">
           <div class="amenities-icons">
-            <img src="/images/overlook-bed-icon.png" tabindex="0" class="amenities-icon-img" alt="Amenities Bed">
-            <img src="/images/overlook-bath-icon.png" tabindex="0" class="amenities-icon-img" alt="Amenities Bath">
-            <img src="/images/overlook-nosmoking-icon.png" tabindex="0" class="amenities-icon-img" alt="No Smoking Allowed">
-            <img src="/images/overlook-dog-icon.png" tabindex="0" class="amenities-icon-img" alt="Pets Allowed">
+            <img src="https://joh-ann.github.io/overlook/images/overlook-bed-icon.png" tabindex="0" class="amenities-icon-img" alt="Amenities Bed">
+            <img src="https://joh-ann.github.io/overlook/images/overlook-bath-icon.png" tabindex="0" class="amenities-icon-img" alt="Amenities Bath">
+            <img src="https://joh-ann.github.io/overlook/images/overlook-nosmoking-icon.png" tabindex="0" class="amenities-icon-img" alt="No Smoking Allowed">
+            <img src="https://joh-ann.github.io/overlook/images/overlook-dog-icon.png" tabindex="0" class="amenities-icon-img" alt="Pets Allowed">
           </div>
           <p tabindex="0">Room #: ${room.number}</p>
           <p tabindex="0">Type: ${room.roomType}</p>
@@ -3711,7 +3711,7 @@ const displayAvailableRooms = (availableRooms) => {
     availableRooms.forEach((room) => {
       availableRoomsHTML += `
       <div class="available-room-card">
-        <img src="images/${room.roomType}-${room.numBeds}.png" tabindex="0" class="room-img" alt="${room.roomType}-${room.numBeds}">
+        <img src="https://joh-ann.github.io/overlook/images/${room.roomType}-${room.numBeds}.png" tabindex="0" class="room-img" alt="${room.roomType}-${room.numBeds}">
         <div class="available-room-info">
           <p tabindex="0">Room #: ${room.number}</p>
           <p tabindex="0">Type: ${room.roomType}</p>
