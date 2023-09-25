@@ -101,7 +101,7 @@ Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
         currentCustomer.id = customerID;
         currentCustomer.bookings = customerBookings;
         currentCustomer.active = true;
-        customerContainer.innerHTML = ``;
+        loginForm.classList.add('hidden');
         displayCustomerInfo(customerID, customerBookings, roomsData);
         displayCustomerRooms(customerBookings, roomsData);
       })
