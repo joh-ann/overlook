@@ -58,6 +58,7 @@ let currentCustomer = {
 };
 
 // DATA
+let customersData = null;
 let roomsData = null;
 let bookingsData = null;
 
