@@ -13,13 +13,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Manrope:wght@400;700&family=Noto+Serif:ital,wght@0,300;0,400;0,500;0,700;1,700&family=Poppins&display=swap" rel="stylesheet">
 </head>
 <header>
-  <div class="home">HOME</div>
-  <div class="about-us">ABOUT US</div>
-  <div class="our-rooms">OUR ROOMS</div>
-  <img class="logo" src="./images/overlook-logo.png">
-  <button class="book-btn" data-micromodal-trigger="modal-1">BOOK</button>
-  <div class="contact">CONTACT</div>
-  <div class="staff">STAFF</div>
+  <div tabindex="0" class="home">HOME</div>
+  <div tabindex="0" class="about-us">ABOUT US</div>
+  <div tabindex="0" class="our-rooms">OUR ROOMS</div>
+  <img tabindex="0" class="logo" src="./images/overlook-logo.png" alt="Overlook Logo">
+  <button tabindex="0" class="book-btn" data-micromodal-trigger="modal-1">BOOK</button>
+  <div tabindex="0" class="contact">CONTACT</div>
+  <div tabindex="0" class="staff">STAFF</div>
 </header>
 <body>
   <!-- MODAL -->
@@ -36,13 +36,13 @@
           <div class="flatpickr-wrapper">
             <div class="flatpickr">
               <input id="date-input" type="text" placeholder="Select Date.." data-input>
-              <a class="open-cal-btn" title="toggle" data-toggle>
+              <a class="open-cal-btn" title="toggle" tabindex="0" data-input>
                 <i class="fa-regular fa-calendar"></i>
               </a>
-              <a class="find-room-btn" title="submit" data-submit>
+              <a class="find-room-btn" title="submit" tabindex="0" data-submit>
                 <i class="fa-solid fa-magnifying-glass"></i>
               </a>
-              <a class="clear-date-btn" title="clear" data-clear>
+              <a class="clear-date-btn" title="clear" tabindex="0" data-clear>
                 <i class="fas fa-times"></i>
               </a>
             </div>
@@ -68,7 +68,7 @@
   <main>
     <section class="rooms-container">
       <div class="home-img-wrapper">
-        <img src="images/overlook-main.png" class="home-img">
+        <img src="images/overlook-main.png" class="home-img" alt="Overlook Main">
       </div>
     </section>
     <section class="staff-container hidden">
