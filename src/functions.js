@@ -14,6 +14,10 @@ export const getCustomerID = (username) => {
 }
 
 export const getCustomerBookings = (customerID, bookings) => {
+  if (typeof customerID !== 'number') {
+    return undefined;
+  }
+
   const currentDate = new Date();
   const pastBookings = bookings.filter(booking => {
     const bookingDate = new Date(booking.date);
