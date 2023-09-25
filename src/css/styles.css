@@ -1,5 +1,5 @@
 * {
-  /* border: 2px solid green; */
+  /* border: 1px solid green; */
   margin: 0;
   padding: 0;
 }
@@ -60,8 +60,8 @@ main {
 }
 
 .logo {
-  height: 100px;
-  width: 200px;
+  height: 110px;
+  width: 240px;
 }
 
 .customer-container {
@@ -125,7 +125,7 @@ label {
 
 .rooms-container {
   display: flex;
-  width: 80vw;
+  max-width: 80vw;
 }
 
 .rooms-info {
@@ -225,10 +225,30 @@ h2 {
 .amenities-icon-img {
   height: 40px;
   width: 40px;
-  padding: 2px;
   background-color: #eae0d5;
   border: 2px double #585123;
   border-radius: 25px;
+}
+
+.about-us-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-us-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  text-align: center;
+  width: 600px;
+}
+
+.about-us-info {
+  font-size: 0.8em;
+  width: 500px;
 }
 
 .book-btn {
@@ -566,4 +586,11 @@ input {
   border-radius: 5px;
   font-size: small;
   font-weight: bold;
+}
+
+/* IMAGES */
+.overlook-pond-img {
+  max-height: 400px;
+  max-width: 600px;
+  border-radius: 5px;
 }
