@@ -32,7 +32,7 @@ export const displayCustomerInfo = (customerID, customerBookings, roomsData) => 
 
     customerHTML += `
     <div class="customer-info" id="${customerID}">
-      <p>Welcome back, <strong>${customerName}</strong>!</p>
+      <p class="welcome-msg">Welcome back, <strong>${customerName}</strong>!</p>
       <p>Upcoming Bookings: ${upcomingBookings.length}</p>
       <p>Past Bookings: ${pastBookings.length}</p>
       <p>Total Spent: $${totalSpent}</p>
