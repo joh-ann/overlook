@@ -3692,7 +3692,7 @@ const displayAboutUs = () => {
       <p tabindex="0" class="about-us-info">Each morning, you can witness the sun's gentle touch as it bathes the landscape beyond your room's <em>floor-to-ceiling windows</em> in its golden glow. Whether it's cherry blossoms in spring, lush greenery in summer, vivid red foliage in autumn, or snow-dusted mountain peaks in winter, you'll be enchanted by the ever-changing beauty of Kyoto. In this captivating city, secrets are cherished, and we are here to guide you in uncovering its hidden gems.</p>
       </div>`;
 
-  aboutUsHTML += `<img src="/images/overlook-pond.png" tabindex="0" class="overlook-pond-img" alt="Overlook Pond">`;
+  aboutUsHTML += `<img src="https://joh-ann.github.io/overlook/overlook-pond.png" tabindex="0" class="overlook-pond-img" alt="Overlook Pond">`;
   aboutUsHTML += `</div>`;
 
   roomsContainer.innerHTML = aboutUsHTML;
