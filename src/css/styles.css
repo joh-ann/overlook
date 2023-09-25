@@ -32,6 +32,7 @@ nav {
 main {
   display: flex;
   justify-content: center;
+  background-color: #c2c5aa;
   height: 65vh;
 }
 
@@ -177,6 +178,9 @@ h2 {
 .room-wrapper {
   display: flex;
   justify-content: space-evenly;
+  background-color: #a4ac86;
+  padding: 20px;
+  border-radius: 15px;
   width: 650px;
   margin: 15px;
 }
@@ -185,6 +189,7 @@ h2 {
   display: flex;
   justify-content: center;
   width: 200px;
+  margin-left: 20px;
   flex-direction: column;
 }
 
@@ -326,6 +331,7 @@ h2 {
   justify-content: center;
   align-items: center;
   line-height: 1.5;
+  background-color: #d0ddd7;
   color: rgba(0,0,0,.8);
 }
 
