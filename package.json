@@ -1,11 +1,11 @@
 {
-  "name": "webpack-starter-kit",
+  "name": "overlook",
   "version": "2.0.0",
-  "description": "Project starter kit using webpack, mocha, chai, and SCSS/SASS enabled",
+  "description": "Hotel Management Tool",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turingschool-examples/webpack-starter-kit.git"
+    "url": "git+https://github.com/joh-ann/overlook.git"
   },
   "author": "Turing School of Software and Design",
   "license": "MIT",
@@ -24,8 +24,10 @@
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "webpack serve",
-    "build": "webpack",
+    "build": "webpack --mode=development",
     "test": "mochapack 'test/**/*.js'",
     "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'"
   },
