@@ -3495,7 +3495,7 @@ const deleteBooking = (bookingID) => {
 }
 
 const getSingleCustomer = (customerID) => {
-  return fetch(`hhttps://overlook-api-two.vercel.app/api/v1/customers/${customerID}`)
+  return fetch(`https://overlook-api-two.vercel.app/api/v1/customers/${customerID}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Fetch failed with status code: ${response.status}`);
