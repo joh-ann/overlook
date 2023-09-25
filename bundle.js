@@ -3998,7 +3998,6 @@ Promise.all([(0,_apiCalls_js__WEBPACK_IMPORTED_MODULE_3__.fetchCustomers)(), (0,
         currentCustomer.id = customerID;
         currentCustomer.bookings = customerBookings;
         currentCustomer.active = true;
-        loginForm.classList.add('hidden');
         (0,_domUpdates_js__WEBPACK_IMPORTED_MODULE_4__.displayCustomerInfo)(customerID, customerBookings, roomsData);
         (0,_domUpdates_js__WEBPACK_IMPORTED_MODULE_4__.displayCustomerRooms)(customerBookings, roomsData);
       })
