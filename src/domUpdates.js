@@ -35,7 +35,7 @@ export const displayCustomerInfo = (customerID, customerBookings, roomsData) => 
       <p class="welcome-msg">Welcome back, <strong>${customerName}</strong>!</p>
       <p>Upcoming Bookings: ${upcomingBookings.length}</p>
       <p>Past Bookings: ${pastBookings.length}</p>
-      <p>Total Spent: $${totalSpent}</p>
+      <p>Total Spent: $${totalSpent.toFixed(2)}</p>
     </div>
     `;
 
