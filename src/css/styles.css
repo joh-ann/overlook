@@ -548,6 +548,7 @@ input {
   margin: 20px 10px 0px 10px;
   padding: 10px;
   background-color: #c2c5aa;
+  border: 1px groove #656d4a;
   border-radius: 10px;
 }
 
@@ -563,7 +564,7 @@ input {
   align-items: center;
   align-self: center;
   justify-content: center;
-  font-size: 1em;
+  font-size: 0.9em;
   height: 45px;
   width: 110px;
   margin-top: 20px;
@@ -573,12 +574,15 @@ input {
   border-radius: 15px;
   background-color: #7f4f24;
   color: #fff;
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.1));
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 1px -2px,rgba(0, 0, 0, .14) 0 2px 2px 0,rgba(0, 0, 0, .12) 0 1px 5px 0;
 }
 
-.book-room-btn:focus, .book-room-btn:hover {
-  transform: scale(1.02);
+.book-room-btn:active {
   background-color: #936639;
+}
+
+.book-room-btn:hover {
+  transform: scale(1.02);
 }
 
 .no-available-rooms {
