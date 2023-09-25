@@ -78,6 +78,7 @@ const clearDateBtn = document.querySelector(".clear-date-btn");
 const bookBtn = document.querySelector(".book-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
 const findRoomBtn = document.querySelector(".find-room-btn");
+const logoImg = document.querySelector(".logo");
 
 Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
@@ -210,4 +211,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 aboutUsPage.addEventListener('click', function(event) {
   displayAboutUs();
-})
+});
+
+logoImg.addEventListener('click', function(event) {
+  location.reload();
+});

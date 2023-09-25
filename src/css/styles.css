@@ -64,6 +64,10 @@ main {
   width: 240px;
 }
 
+.logo:hover {
+  cursor: pointer;
+}
+
 .customer-container {
   display: flex;
   justify-content: center;
