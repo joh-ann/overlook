@@ -145,6 +145,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }).open();
   })
 
+  openCalBtn.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      bookBtn.click();
+    }
+  });
+
   findRoomBtn.addEventListener('click', function(event) {
     const selectedDate = input.value;
 
@@ -158,12 +164,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   })
 
+  findRoomBtn.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      findRoomBtn.click();
+    }
+  });
+
   clearDateBtn.addEventListener('click', function() {
     flatpickr(input, {
       dateFormat: "Y/m/d"
     }).clear();
     clearRoomSearch();
   })
+
+  clearDateBtn.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      clearDateBtn.click();
+    }
+  });
 
   // BOOK ROOM BUTTON
   modalContainer.addEventListener('click', function(event) {
