@@ -1,6 +1,5 @@
-import { getSingleCustomer } from "./apiCalls";
-import { getTotalSpent } from "./functions"
-import { roomsData } from "./scripts";
+import { getSingleCustomer } from "./apiCalls.js";
+import { getTotalSpent } from "./functions.js";
 
 const roomsContainer = document.querySelector('.rooms-container');
 const customerContainer = document.querySelector('.customer-container');
@@ -65,11 +64,11 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
       return bookingB.date.localeCompare(bookingA.date);
     });
     
-  roomsHTML += `<h1 tabindex="0">Upcoming Bookings</h1>`
-  roomsHTML += `<div class="upcoming-bookings">`
+  roomsHTML += `<h1 tabindex="0">Upcoming Bookings</h1>`;
+  roomsHTML += `<div class="upcoming-bookings">`;
 
   upcomingBookings.forEach((upcomingBooking) => {
-    const matchedRoom = roomsData.find((room) => room.number === upcomingBooking.roomNumber)
+    const matchedRoom = roomsData.find((room) => room.number === upcomingBooking.roomNumber);
     roomsHTML += `
     <div class="room-card">
       <div tabindex="0" class="date-overlay"><p>${upcomingBooking.date}</p></div>
@@ -82,15 +81,15 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
         <p tabindex="0">Cost: $${matchedRoom.costPerNight}/night</p>
       </div>
     </div>
-    `
-  })
-  roomsHTML += `</div>`
+    `;
+  });
+  roomsHTML += `</div>`;
 
-  roomsHTML += `<h1 tabindex="0">Past Bookings</h1>`
-  roomsHTML += `<div class="past-bookings">`
+  roomsHTML += `<h1 tabindex="0">Past Bookings</h1>`;
+  roomsHTML += `<div class="past-bookings">`;
 
   pastBookings.forEach((pastBooking) => {
-    const matchedRoom = roomsData.find((room) => room.number === pastBooking.roomNumber)
+    const matchedRoom = roomsData.find((room) => room.number === pastBooking.roomNumber);
     roomsHTML += `
     <div class="room-card">
     <div tabindex="0" class="date-overlay"><p>${pastBooking.date}</p></div>
@@ -103,19 +102,19 @@ export const displayCustomerRooms = (customerBookings, roomsData) => {
         <p tabindex="0">Cost: $${matchedRoom.costPerNight}/night</p>
       </div>
     </div>
-    `
-  })
-  roomsHTML += `</div>`
-  roomsHTML += `</div>`
+    `;
+  });
+  roomsHTML += `</div>`;
+  roomsHTML += `</div>`;
   
   roomsContainer.innerHTML = roomsHTML;
 }
 
 export const displayAllRooms = (roomsData) => {
-  let roomsHTML = ``
+  let roomsHTML = ``;
 
-  roomsHTML += `<div class="rooms-list">`
-  roomsHTML += `<h1 tabindex="0">Our Rooms</h1>`
+  roomsHTML += `<div class="rooms-list">`;
+  roomsHTML += `<h1 tabindex="0">Our Rooms</h1>`;
   roomsData.forEach((room) => {
     roomsHTML += `
     <div class="room-wrapper">
@@ -134,14 +133,14 @@ export const displayAllRooms = (roomsData) => {
           <p tabindex="0">Cost: $${room.costPerNight}/night</p>
         </div>
     </div>
-    `
-  })
-  roomsHTML += `</div>`
+    `;
+  });
+  roomsHTML += `</div>`;
   roomsContainer.innerHTML = roomsHTML;
 }
 
 export const displayAboutUs = () => {
-  let aboutUsHTML = ``
+  let aboutUsHTML = ``;
 
   aboutUsHTML += `
   <div class="about-us-wrapper">
@@ -152,20 +151,20 @@ export const displayAboutUs = () => {
       <p tabindex="0" class="about-us-info">Each morning, you can witness the sun's gentle touch as it bathes the landscape beyond your room's <em>floor-to-ceiling windows</em> in its golden glow. Whether it's cherry blossoms in spring, lush greenery in summer, vivid red foliage in autumn, or snow-dusted mountain peaks in winter, you'll be enchanted by the ever-changing beauty of Kyoto. In this captivating city, secrets are cherished, and we are here to guide you in uncovering its hidden gems.</p>
       </div>`;
 
-  aboutUsHTML += `<img src="/images/overlook-pond.png" tabindex="0" class="overlook-pond-img" alt="Overlook Pond">`
-  aboutUsHTML += `</div>`
+  aboutUsHTML += `<img src="/images/overlook-pond.png" tabindex="0" class="overlook-pond-img" alt="Overlook Pond">`;
+  aboutUsHTML += `</div>`;
 
   roomsContainer.innerHTML = aboutUsHTML;
 }
 
 export const displayAvailableRooms = (availableRooms) => {
-  let availableRoomsHTML = ``
+  let availableRoomsHTML = ``;
   if (availableRooms.length === 0) {
       availableRoomsHTML += `
       <div class="no-available-rooms">
         <p tabindex="0">Sorry, no rooms are available for the selected date. Please choose a different date or contact us for assistance.</p>
       </div>
-      `
+      `;
     availableRoomsContainer.innerHTML = availableRoomsHTML;
   } else {
     availableRooms.forEach((room) => {
@@ -180,8 +179,8 @@ export const displayAvailableRooms = (availableRooms) => {
           <p tabindex="0">Cost: $${room.costPerNight}/night</p>
           <button class="book-room-btn" tabindex="0" id=${room.number}>Book Room</button>
         </div>
-      </div>`
-    })
+      </div>`;
+    });
 
     availableRoomsContainer.innerHTML = availableRoomsHTML;
   }
@@ -193,12 +192,12 @@ export const displayNoDateSelected = () => {
   <div class="no-selected-date">
     <p tabindex="0">Please select a date to check room availability.</p>
   </div>
-  `
+  `;
   availableRoomsContainer.innerHTML = availableRoomsHTML;
 }
 
 export const clearRoomSearch = () => {
-  let availableRoomsHTML = ``
+  let availableRoomsHTML = ``;
 
   availableRoomsContainer.innerHTML = availableRoomsHTML;
 }

@@ -9,13 +9,6 @@ html {
   height: 100vh;
 }
 
-/* fonts
-font-family: 'Cedarville Cursive', cursive;
-font-family: 'Manrope', sans-serif;
-font-family: 'Noto Serif', serif;
-font-family: 'Poppins', sans-serif; 
-*/
-
 header {
   display: flex;
   justify-content: center;
@@ -73,7 +66,6 @@ main {
   justify-content: center;
   height: 15vh;
   width: 30vw;
-
 }
 
 .customer-info {

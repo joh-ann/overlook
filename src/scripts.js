@@ -11,12 +11,10 @@ import {
   fetchBookings,
   addBooking,
   deleteBooking,
-  getSingleCustomer,
   fetchCustomerBookings,
 } from "./apiCalls.js";
 
 import { 
-  displayRooms,
   displayCustomerInfo, 
   displayLoginErrorMsg,
   displayCustomerRooms,
@@ -30,7 +28,6 @@ import {
 import { 
   checkUsername, 
   getCustomerID, 
-  getCustomerBookings,
   getAvailableRooms,
 } from "./functions.js";
 
@@ -61,7 +58,6 @@ let currentCustomer = {
 };
 
 // DATA
-let customersData = null;
 let roomsData = null;
 let bookingsData = null;
 
@@ -87,7 +83,7 @@ Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
   bookingsData = bookingsDataValue.bookings;
 
   ourRooms.addEventListener('click', function() {
-    displayAllRooms(roomsData)
+    displayAllRooms(roomsData);
   });
 
   loginForm.addEventListener('submit', function(event) {
@@ -99,12 +95,12 @@ Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
       const customerID = getCustomerID(usernameInput.value);
       fetchCustomerBookings(customerID).then((bookings) => {
         const customerBookings = bookings;
-        console.log(customerBookings)
+        // console.log(customerBookings)
         currentCustomer.id = customerID;
         currentCustomer.bookings = customerBookings;
         currentCustomer.active = true;
-        displayCustomerInfo(customerID, customerBookings, roomsData)
-        displayCustomerRooms(customerBookings, roomsData)
+        displayCustomerInfo(customerID, customerBookings, roomsData);
+        displayCustomerRooms(customerBookings, roomsData);
       })
       .catch((error) => {
         console.error("Error fetching customer bookings:", error);
@@ -114,7 +110,7 @@ Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
     }
   });
 
-  homePage.addEventListener('click', function(event) {
+  homePage.addEventListener('click', function() {
     displayCustomerInfo(currentCustomer.id, currentCustomer.bookings, roomsData);
     displayCustomerRooms(currentCustomer.bookings, roomsData);
   });
@@ -126,24 +122,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   flatpickr(input, {
     dateFormat: "Y/m/d"
-  })
+  });
 
-  bookBtn.addEventListener('click', function(event) {
+  bookBtn.addEventListener('click', function() {
     flatpickr(input, {
       dateFormat: "Y/m/d"
     });
-  })
+  });
 
-  input.addEventListener('change', function(event) {
+  input.addEventListener('change', function() {
     const selectedDate = input.value;
     console.log('Selected date:', selectedDate);
-  })
+  });
 
   openCalBtn.addEventListener('click', function() {
     flatpickr(input, {
       dateFormat: "Y/m/d"
     }).open();
-  })
+  });
 
   openCalBtn.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -151,18 +147,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  findRoomBtn.addEventListener('click', function(event) {
+  findRoomBtn.addEventListener('click', function() {
     const selectedDate = input.value;
 
     if (selectedDate.length === 0) {
       displayNoDateSelected();
     } else {
-    console.log('Searching for...', selectedDate);
+    // console.log('Searching for...', selectedDate);
     const availableRooms = getAvailableRooms(selectedDate, bookingsData, roomsData);
     displayAvailableRooms(availableRooms);
-    console.log(currentCustomer)
     }
-  })
+  });
 
   findRoomBtn.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -176,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
       dateFormat: "Y/m/d"
     }).clear();
     clearRoomSearch();
-  })
+  });
 
   clearDateBtn.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -187,9 +182,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // BOOK ROOM BUTTON
   modalContainer.addEventListener('click', function(event) {
-    console.log('modal container')
+    // console.log('modal container')
     if (event.target.classList.contains("book-room-btn")) {
-      console.log('book room button')
+      // console.log('book room button')
       if (currentCustomer.active) {
         let selectedDate = input.value;
         let roomNumber = parseInt(event.target.id);

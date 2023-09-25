@@ -53,6 +53,5 @@ export const getAvailableRooms = (selectedDate, allBookings, rooms) => {
     .map((booking) => booking.roomNumber);
 
     const availableRooms = rooms.filter((room) => !bookedRoomNumbers.includes(room.number));
-    console.log(availableRooms)
     return availableRooms;
 }
