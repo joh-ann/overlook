@@ -69,6 +69,7 @@ const ourRooms = document.querySelector(".our-rooms");
 const homePage = document.querySelector(".home");
 const aboutUsPage = document.querySelector(".about-us");
 const modalContainer = document.querySelector("#modal-1");
+const customerContainer = document.querySelector(".customer-container");
 
 // BUTTONS
 const clearDateBtn = document.querySelector(".clear-date-btn");
@@ -100,6 +101,7 @@ Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
         currentCustomer.id = customerID;
         currentCustomer.bookings = customerBookings;
         currentCustomer.active = true;
+        customerContainer.innerHTML = ``;
         displayCustomerInfo(customerID, customerBookings, roomsData);
         displayCustomerRooms(customerBookings, roomsData);
       })
