@@ -6,18 +6,6 @@ const customerContainer = document.querySelector('.customer-container');
 const loginErrorMsg = document.querySelector('.login-error-msg');
 const availableRoomsContainer = document.querySelector('.selected-date-rooms');
 
-export const displayRooms = (rooms) => {
-  let roomsHTML = ``;
-  rooms.forEach((room) => {
-    roomsHTML += 
-    `<div class="room" id="${room.number}">
-    ${room.roomType}
-    ${room.costPerNight}
-    </div>`
-  });
-  roomsContainer.innerHTML = roomsHTML;
-}
-
 export const displayCustomerInfo = (customerID, customerBookings, roomsData) => {
   let customerHTML = ``;
 
