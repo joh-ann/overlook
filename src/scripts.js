@@ -73,7 +73,7 @@ const modalContainer = document.querySelector("#modal-1");
 
 // BUTTONS
 const clearDateBtn = document.querySelector(".clear-date-btn");
-const reservationBtn = document.querySelector(".reservation-btn");
+const bookBtn = document.querySelector(".book-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
 const findRoomBtn = document.querySelector(".find-room-btn");
 
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dateFormat: "Y/m/d"
   })
 
-  reservationBtn.addEventListener('click', function(event) {
+  bookBtn.addEventListener('click', function(event) {
     flatpickr(input, {
       dateFormat: "Y/m/d"
     });
