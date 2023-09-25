@@ -111,11 +111,14 @@ main {
   font-size: 0.8em;
   padding-top: 5px;
   flex-direction: column;
-  margin-top: 10px;
-  background-color: #d9d9d9;
+  margin-top: 30px;
+  background-color: #ffffff;
   border-radius: 15px;
   height: 200px;
   width: 300px;
+  position: absolute;
+  z-index: 1;
+  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.5));
 }
 
 label {
@@ -131,13 +134,10 @@ label {
 .rooms-info {
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
   align-items: center;
   width: 80vw;
   overflow-y: auto;
-}
-
-h2 {
-  font-size: 1rem;
 }
 
 .upcoming-bookings,
@@ -145,6 +145,14 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+h1 {
+  margin: 10px;
+}
+
+h2 {
+  font-size: 1.2em;
 }
 
 .room-card {
@@ -155,13 +163,16 @@ h2 {
   margin: 10px;
   padding: 20px;
   position: relative;
+  background: rgba(164, 172, 134, 0.4);
+  border: 1px dashed #656d4a;
+  border-radius: 5px;
 }
 
 .room-icon-img {
   display: flex;
   height: 110px;
   width: 180px;
-  margin-right: 10px;
+  margin-right: 20px;
   border-radius: 6px;
 }
 
@@ -169,7 +180,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 12px;
+  font-size: 0.8em;
 }
 
 .staff-container {
@@ -188,8 +199,8 @@ h2 {
   align-items: center;
   width: 80vw;
   overflow-y: auto;
-  margin: 10px;
-  padding: 50px;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .room-wrapper {
@@ -200,6 +211,7 @@ h2 {
   border-radius: 15px;
   width: 650px;
   margin: 15px;
+  border: 1px dashed #656d4a;
 }
 
 .room-info {
@@ -380,6 +392,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 80vh;
   align-items: center;
   line-height: 1.5;
   background-color: #d0ddd7;
@@ -582,15 +595,33 @@ input {
   position: absolute;
   top: 10px;
   left: 10px;
+  padding: 4px;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
+  border-radius: 2px;
   font-size: small;
   font-weight: bold;
 }
 
 /* IMAGES */
 .overlook-pond-img {
-  max-height: 400px;
-  max-width: 600px;
+  max-height: 500px;
+  max-width: 700px;
   border-radius: 5px;
+  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+.home-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-left: 100px;
+}
+
+.home-img {
+  height: 70vh;
+  width: 70vw;
+  border-radius: 10px;
+  position: absolute;
+  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));
 }
