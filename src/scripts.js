@@ -51,6 +51,12 @@ import "./images/overlook-pond.png";
 import "./images/overlook-room.png";
 import "./images/overlook-spa.png";
 
+// AMENITIES ICONS
+import "./images/overlook-nosmoking-icon.png";
+import "./images/overlook-bath-icon.png";
+import "./images/overlook-dog-icon.png";
+import "./images/overlook-bed-icon.png";
+
 // USER
 let currentCustomer = {
   id: null,

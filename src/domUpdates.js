@@ -120,6 +120,12 @@ export const displayAllRooms = (roomsData) => {
     <div class="room-wrapper">
       <img src="images/${room.roomType}-${room.numBeds}.png" class="room-img">
         <div class="room-info">
+          <div class="amenities-icons">
+            <img src="/images/overlook-bed-icon.png" class="amenities-icon-img">
+            <img src="/images/overlook-bath-icon.png" class="amenities-icon-img">
+            <img src="/images/overlook-nosmoking-icon.png" class="amenities-icon-img">
+            <img src="/images/overlook-dog-icon.png" class="amenities-icon-img">
+          </div>
           <p>Room #: ${room.number}</p>
           <p>Type: ${room.roomType}</p>
           <p>Bed: ${room.bedSize}</p>
