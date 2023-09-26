@@ -49,7 +49,7 @@ import "./images/overlook-main.png";
 import "./images/overlook-nosmoking-icon.png";
 import "./images/overlook-bath-icon.png";
 import "./images/overlook-dog-icon.png";
-import "./images/overlook-bed-icon.png";
+import "./images/overlook-roomservice-icon.png";
 
 // USER
 let currentCustomer = {
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
       displayAvailableRooms(availableRooms);
     }
   });
-  
+
   // BOOK ROOM BUTTON
   modalContainer.addEventListener('click', function(event) {
     // console.log('modal container')
