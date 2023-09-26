@@ -80,6 +80,10 @@ main {
   font-size: 1.3em;
 }
 
+.input-label {
+  padding-right: 130px;
+}
+
 #username-input,
 #password-input {
   height: 25px;
@@ -120,11 +124,6 @@ main {
   width: 300px;
   z-index: 1;
   filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.5));
-}
-
-label {
-  padding-right: 120px;
-  padding-bottom: 4px;
 }
 
 .rooms-container {
@@ -199,7 +198,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50vw;
+  width: 60vw;
   overflow-y: auto;
   margin-top: 10px;
   margin-bottom: 25px;
@@ -233,17 +232,13 @@ h2 {
 }
 
 .amenities-icons {
-  padding-bottom: 10px;
-  width: 300px;
+  margin-bottom: 10px;
 }
 
 .amenities-icon-img {
-  height: 40px;
-  width: 40px;
-  background-color: #eae0d5;
-  border: 2px double #585123;
-  border-radius: 25px;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+  height: 35px;
+  width: 35px;
+  margin-right: 5px;
 }
 
 .about-us-wrapper {
@@ -263,7 +258,7 @@ h2 {
 }
 
 .about-us-info {
-  font-size: 0.8em;
+  font-size: 0.9em;
   width: 500px;
 }
 
@@ -525,6 +520,13 @@ input {
   margin-bottom: 8px;
 }
 
+#date-input {
+  margin-top: 6px;
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+}
+
 .selected-date-rooms {
   display: flex;
   flex-direction: column;
@@ -629,4 +631,21 @@ input {
   border-radius: 10px;
   position: absolute;
   filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* FILTER ROOM */
+.filter-rooms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+#select-rooms {
+  display: flex;
+  padding: 2px;
+  text-align: center;
+  width: 140px;
+  border-radius: 25px;
 }

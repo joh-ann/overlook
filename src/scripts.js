@@ -29,6 +29,7 @@ import {
   checkUsername, 
   getCustomerID, 
   getAvailableRooms,
+  filterRoomsByType,
 } from "./functions.js";
 
 // IMAGES
@@ -48,7 +49,7 @@ import "./images/overlook-main.png";
 import "./images/overlook-nosmoking-icon.png";
 import "./images/overlook-bath-icon.png";
 import "./images/overlook-dog-icon.png";
-import "./images/overlook-bed-icon.png";
+import "./images/overlook-roomservice-icon.png";
 
 // USER
 let currentCustomer = {
@@ -77,6 +78,7 @@ const bookBtn = document.querySelector(".book-btn");
 const openCalBtn = document.querySelector(".open-cal-btn");
 const findRoomBtn = document.querySelector(".find-room-btn");
 const logoImg = document.querySelector(".logo");
+const selectRooms = document.querySelector("#select-rooms");
 
 Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
 .then(([customersDataValue, roomsDataValue, bookingsDataValue]) => {
@@ -179,6 +181,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (event.key === 'Enter') {
       event.preventDefault();
       clearDateBtn.click();
+    }
+  });
+
+  selectRooms.addEventListener('change', function(event) {
+    let selectedType = event.target.value;
+    const selectedDate = input.value;
+  
+    if (selectedDate.length === 0) {
+      displayNoDateSelected();
+    } else {
+      console.log(selectedType)
+      const filteredRooms = filterRoomsByType(selectedType, roomsData);
+      console.log(filteredRooms)
+      const availableRooms = getAvailableRooms(selectedDate, bookingsData, filteredRooms);
+      displayAvailableRooms(availableRooms);
     }
   });
 

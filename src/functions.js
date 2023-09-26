@@ -55,3 +55,14 @@ export const getAvailableRooms = (selectedDate, allBookings, rooms) => {
     const availableRooms = rooms.filter((room) => !bookedRoomNumbers.includes(room.number));
     return availableRooms;
 }
+
+export const filterRoomsByType = (type, rooms) => {
+  if (type === 'all') {
+    return rooms;
+  } else {
+  const filteredRooms = rooms.filter((room) => {
+    return type === room.roomType
+  })
+  return filteredRooms;
+  }
+}
