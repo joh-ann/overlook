@@ -33,6 +33,14 @@ This is the final solo project of Mod 2 at Turing School of Software & Design. W
 ## Installation Instructions:
 View on [GitHub Pages](https://joh-ann.github.io/overlook/)
 
+Login information:
+
+```
+Username: customer<1-50> (eg. customer1)
+
+Password: overlook2021
+```
+
 This application requires access to both our backend server repository and front-end repository.
 
 ### Backend Server Setup:
