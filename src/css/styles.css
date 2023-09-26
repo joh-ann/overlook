@@ -232,17 +232,13 @@ h2 {
 }
 
 .amenities-icons {
-  padding-bottom: 10px;
-  width: 300px;
+  margin-bottom: 10px;
 }
 
 .amenities-icon-img {
-  height: 40px;
-  width: 40px;
-  background-color: #eae0d5;
-  border: 2px double #585123;
-  border-radius: 25px;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+  height: 35px;
+  width: 35px;
+  margin-right: 5px;
 }
 
 .about-us-wrapper {
