@@ -7,6 +7,7 @@ import {
   getCustomerBookings,
   getTotalSpent,
   getAvailableRooms,
+  filterRoomsByType,
 } from "../src/functions.js";
 
 import {
@@ -111,5 +112,28 @@ describe('Get Available Rooms', function() {
     const selectedDate = "2022/09/09"
     const availableRooms = getAvailableRooms(selectedDate, bookings.bookings, rooms.rooms);
     expect(availableRooms.length).to.equal(0);
+  });
+});
+
+describe('Filter Room by Type', function() {
+  it('should return all rooms', function() {
+    const type = 'all';
+    const filteredRooms = filterRoomsByType(type, rooms.rooms);
+    expect(filteredRooms.length).to.equal(4);
+  });
+  it('should return filtered rooms', function() {
+    const type = 'single room';
+    const filteredRooms = filterRoomsByType(type, rooms.rooms);
+    expect(filteredRooms.length).to.equal(2);
+  });
+  it('should return filtered rooms for another type', function() {
+    const type = 'residential suite';
+    const filteredRooms = filterRoomsByType(type, rooms.rooms);
+    expect(filteredRooms.length).to.equal(1);
+  });
+  it('should return no rooms for no type', function() {
+    const type = 'double';
+    const filteredRooms = filterRoomsByType(type, rooms.rooms);
+    expect(filteredRooms.length).to.equal(0);
   });
 });
