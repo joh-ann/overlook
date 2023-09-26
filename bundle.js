@@ -3408,7 +3408,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const fetchCustomers = () => {
-  return fetch("http://localhost:3001/api/v1/customers")
+  return fetch("https://overlook-api-two.vercel.app/api/v1/customers")
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -3422,7 +3422,7 @@ const fetchCustomers = () => {
 }
 
 const fetchRooms = () => {
-  return fetch("http://localhost:3001/api/v1/rooms")
+  return fetch("https://overlook-api-two.vercel.app/api/v1/rooms")
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -3436,7 +3436,7 @@ const fetchRooms = () => {
 }
 
 const fetchBookings = () => {
-  return fetch("http://localhost:3001/api/v1/bookings")
+  return fetch("https://overlook-api-two.vercel.app/api/v1/bookings")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -3450,7 +3450,7 @@ const fetchBookings = () => {
   }
 
 const addBooking = (userID, date, roomNumber) => {
-  return fetch("http://localhost:3001/api/v1/bookings", {
+  return fetch("https://overlook-api-two.vercel.app/api/v1/bookings", {
     method: 'POST',
     body: JSON.stringify({
       userID: userID,
@@ -3475,7 +3475,7 @@ const addBooking = (userID, date, roomNumber) => {
 }
 
 const deleteBooking = (bookingID) => {
-  return fetch(`http://localhost:3001/api/v1/bookings/${bookingID}`, {
+  return fetch(`https://overlook-api-two.vercel.app/api/v1/bookings/${bookingID}`, {
     method: 'DELETE',
     headers: {
        'Content-Type': 'application/json'
@@ -3495,7 +3495,7 @@ const deleteBooking = (bookingID) => {
 }
 
 const getSingleCustomer = (customerID) => {
-  return fetch(`http://localhost:3001/api/v1/customers/${customerID}`)
+  return fetch(`https://overlook-api-two.vercel.app/api/v1/customers/${customerID}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Fetch failed with status code: ${response.status}`);
@@ -3512,7 +3512,7 @@ const getSingleCustomer = (customerID) => {
   }
 
 const fetchCustomerBookings = (customerID) => {
-  return fetch(`http://localhost:3001/api/v1/bookings`)
+  return fetch(`https://overlook-api-two.vercel.app/api/v1/bookings`)
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Fetch failed with status code: ${response.status}`);
