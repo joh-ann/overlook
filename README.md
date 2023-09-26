@@ -15,7 +15,7 @@
 Experience a user-friendly dashboard that effortlessly tracks your past and upcoming room bookings while providing insights into your total room expenses. As a customer, seamlessly select your desired booking date, explore a curated list of available rooms tailored to that specific day, and refine your search by room type.
 
 ## Preview of App:
-![overlook](https://github.com/joh-ann/overlook/assets/126308696/5c43ffdb-dd97-42f5-819b-19dcd422d264)
+![overlook](https://github.com/joh-ann/overlook/assets/126308696/2d148554-f0a3-439d-a9f9-9a2419ed57e5)
 
 
 ## Contributors:
