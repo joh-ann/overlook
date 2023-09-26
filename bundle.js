@@ -4034,12 +4034,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const input = document.getElementById('date-input');
 
   (0,flatpickr__WEBPACK_IMPORTED_MODULE_0__.default)(input, {
-    dateFormat: "Y/m/d"
+    dateFormat: "Y/m/d",
+    minDate: "today"
   });
 
   bookBtn.addEventListener('click', function() {
     (0,flatpickr__WEBPACK_IMPORTED_MODULE_0__.default)(input, {
-      dateFormat: "Y/m/d"
+      dateFormat: "Y/m/d",
+      minDate: "today"
     });
   });
 
@@ -4050,7 +4052,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   openCalBtn.addEventListener('click', function() {
     (0,flatpickr__WEBPACK_IMPORTED_MODULE_0__.default)(input, {
-      dateFormat: "Y/m/d"
+      dateFormat: "Y/m/d",
+      minDate: "today"
     }).open();
   });
 
