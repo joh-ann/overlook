@@ -1,5 +1,5 @@
 * {
-  /* border: 1px solid green; */
+  border: 1px solid green;
   margin: 0;
   padding: 0;
 }
@@ -80,6 +80,10 @@ main {
   font-size: 1.3em;
 }
 
+.input-label {
+  padding-right: 130px;
+}
+
 #username-input,
 #password-input {
   height: 25px;
@@ -120,11 +124,6 @@ main {
   width: 300px;
   z-index: 1;
   filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.5));
-}
-
-label {
-  padding-right: 120px;
-  padding-bottom: 4px;
 }
 
 .rooms-container {
@@ -525,6 +524,14 @@ input {
   margin-bottom: 8px;
 }
 
+#date-input {
+  margin-top: 6px;
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  border-radius: 20px;
+}
+
 .selected-date-rooms {
   display: flex;
   flex-direction: column;
@@ -629,4 +636,21 @@ input {
   border-radius: 10px;
   position: absolute;
   filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* FILTER ROOM */
+.filter-rooms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+#select-rooms {
+  display: flex;
+  padding: 2px;
+  text-align: center;
+  width: 140px;
+  border-radius: 25px;
 }
