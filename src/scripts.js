@@ -125,12 +125,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const input = document.getElementById('date-input');
 
   flatpickr(input, {
-    dateFormat: "Y/m/d"
+    dateFormat: "Y/m/d",
+    minDate: "today"
   });
 
   bookBtn.addEventListener('click', function() {
     flatpickr(input, {
-      dateFormat: "Y/m/d"
+      dateFormat: "Y/m/d",
+      minDate: "today"
     });
   });
 
@@ -141,7 +143,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   openCalBtn.addEventListener('click', function() {
     flatpickr(input, {
-      dateFormat: "Y/m/d"
+      dateFormat: "Y/m/d",
+      minDate: "today"
     }).open();
   });
 
