@@ -32,33 +32,13 @@ Experience a user-friendly dashboard that effortlessly tracks your past and upco
 - Implement a robust testing suite using TDD
 - Write DRY, reusable code that follows SRP (Single Responsibility Principle)
 
-### Installation Instructions:
-View on [GitHub Pages](https://joh-ann.github.io/overlook/)
-
-Login information:
+### Login information
 
 ```
 Username: customer<1-50> (eg. customer1)
 
 Password: overlook2021
 ```
-
-This application requires access to both our backend server repository and front-end repository
-
-### Backend Server Setup:
-1. Fork [this](https://github.com/joh-ann/overlook-api) repository
-2. Clone it to your location machine using: `git clone git@github.com:joh-ann/overlook.git`
-3. Run the command: `cd overlook-api`
-4. Run the command: `npm install`
-5. Run the command: `npm start`
-
-### Front-end Client Setup 
-1. Fork this repository.
-2. Clone it to your local machine using: `git clone git@github.com:joh-ann/overlook.git`
-3. Run the command: `cd overlook`
-4. Run the command: `npm install`
-5. Run the command: `npm start`
-6. View the live web page by entering http://localhost:8080/ into your browser's address bar
    
 ### Contributors
 [Johann Dee](https://github.com/joh-ann)
